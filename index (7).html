@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Final Say</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --void-black:  #05060a;   /* page background — deep space black */
+    --navy-line:   #23324a;   /* hairline / rule, dimmed to sit against black */
+    --ink-pale:    #d9e2f1;   /* mantra + quote text */
+    --ink-white:   #f4f7fb;   /* selective quote emphasis */
+    --ink-faint:   rgba(217,226,241,0.55);
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html, body{
+    height: 100%;
+    background: var(--void-black);
+  }
+
+  body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Sparse starfield — three layers of different star sizes, tile sizes and
+     opacity so the field reads as depth (distant/mid/near) rather than a
+     flat repeating grid. Fixed so it stays put as the page scrolls. */
+  .stars{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .stars span{
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-repeat: repeat;
+  }
+
+  .stars .far{
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.55), transparent 100%),
+      radial-gradient(1px 1px at 37% 62%, rgba(255,255,255,0.4), transparent 100%),
+      radial-gradient(1px 1px at 58% 30%, rgba(255,255,255,0.5), transparent 100%),
+      radial-gradient(1px 1px at 81% 74%, rgba(255,255,255,0.35), transparent 100%),
+      radial-gradient(1px 1px at 24% 88%, rgba(255,255,255,0.45), transparent 100%),
+      radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,0.4), transparent 100%);
+    background-size: 260px 260px;
+    opacity: 0.6;
+  }
+
+  .stars .mid{
+    background-image:
+      radial-gradient(1.4px 1.4px at 20% 40%, rgba(217,226,241,0.7), transparent 100%),
+      radial-gradient(1.4px 1.4px at 66% 20%, rgba(217,226,241,0.55), transparent 100%),
+      radial-gradient(1.4px 1.4px at 84% 66%, rgba(217,226,241,0.6), transparent 100%),
+      radial-gradient(1.4px 1.4px at 45% 85%, rgba(217,226,241,0.5), transparent 100%);
+    background-size: 420px 420px;
+    opacity: 0.55;
+  }
+
+  .stars .near{
+    background-image:
+      radial-gradient(1.8px 1.8px at 30% 30%, rgba(120,160,220,0.8), transparent 100%),
+      radial-gradient(1.8px 1.8px at 70% 55%, rgba(217,226,241,0.75), transparent 100%),
+      radial-gradient(1.8px 1.8px at 15% 75%, rgba(120,160,220,0.7), transparent 100%);
+    background-size: 640px 640px;
+    opacity: 0.5;
+  }
+
+  header, main, .quote, footer{
+    position: relative;
+    z-index: 1;
+  }
+
+  header{
+    flex: 0 0 auto;
+    padding: 2.4rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--navy-line);
+  }
+
+  .header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 2.75rem);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .mantra{
+    flex: 1 1 0;
+    letter-spacing: 0.12em;
+    color: var(--ink-pale);
+  }
+
+  .mantra-en{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2.4vw, 1.85rem);
+    text-align: right;
+  }
+
+  .mantra-zh{
+    font-family: 'Cormorant Garamond', 'Songti SC', 'Noto Serif SC', serif;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    font-size: clamp(1.1rem, 2.4vw, 1.85rem);
+    text-align: left;
+  }
+
+  .crest{
+    flex: 0 0 auto;
+    height: clamp(64px, 9vw, 104px);
+    width: auto;
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
+  }
+
+  @media (max-width: 640px){
+    .header-inner{
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .mantra-en, .mantra-zh{ text-align: center; }
+    .crest{ height: 76px; order: -1; }
+  }
+
+  main{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .cover-half{
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.75rem;
+    position: relative;
+  }
+
+  .cover-half::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72%;
+    height: 72%;
+    transform: translate(-50%, -50%);
+    filter: blur(48px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .cover-half.en::before{
+    background: radial-gradient(closest-side,
+                  rgba(140,175,230,0.38) 0%,
+                  rgba(90,130,195,0.20) 45%,
+                  rgba(90,130,195,0.08) 70%,
+                  transparent 85%);
+  }
+
+  .cover-half.zh::before{
+    background: radial-gradient(closest-side,
+                  rgba(230,80,70,0.36) 0%,
+                  rgba(210,150,60,0.20) 45%,
+                  rgba(210,150,60,0.08) 70%,
+                  transparent 85%);
+  }
+
+  .cover-half img{
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-half:first-child{
+    border-right: 1px solid var(--navy-line);
+  }
+
+  .cover-half img{
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+  }
+
+  .cover-label{
+    position: absolute;
+    bottom: 1.1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 760px){
+    .cover-half{ padding: 1.1rem 0.6rem; }
+    .cover-half img{ max-height: 70vh; }
+    .cover-label{ font-size: 0.6rem; letter-spacing: 0.08em; }
+  }
+
+  @media (max-width: 420px){
+    .cover-half{ padding: 0.7rem 0.35rem; }
+    .cover-half img{ max-height: 62vh; }
+  }
+
+  .quote{
+    border-top: 1px solid var(--navy-line);
+    padding: 3.4rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .quote p{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--ink-pale);
+    max-width: 68ch;
+    margin: 0 auto;
+  }
+
+  .quote .shared-boundary{
+    font-weight: 600;
+    color: var(--ink-white);
+  }
+
+  .quote p::before{ content: "\201C"; }
+  .quote p::after{ content: "\201D"; }
+</style>
+</head>
+<body>
+
+  <div class="stars" aria-hidden="true">
+    <span class="far"></span>
+    <span class="mid"></span>
+    <span class="near"></span>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <div class="mantra mantra-en">In Hoc Una Sumus</div>
+      <img class="crest" src="assets/bwrci-crest.png" alt="BWRCI crest — dragon shield, &quot;We're in this together&quot;">
+      <div class="mantra mantra-zh">在此同心</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="cover-half en">
+      <img src="assets/cover-en.png" alt="Human Intelligence: The Final Say — English cover">
+      <div class="cover-label">English</div>
+    </div>
+    <div class="cover-half zh">
+      <img src="assets/cover-zh.png" alt="人类智能：最终决定权 — Simplified Chinese cover (red edition)">
+      <div class="cover-label">简体中文</div>
+    </div>
+  </main>
+
+  <section class="quote">
+    <p>Let America build. Let China build. Let every region build.<br>
+    Let markets reveal the best autonomous systems&mdash;but let humanity establish the boundary <span class="shared-boundary">beneath them together.</span></p>
+  </section>
+
+</body>
+</html>
