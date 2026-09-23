@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Intelligence, The Final Say — manifesto/book coming soon</title>
+
+<meta name="description" content="We love AI, but let's keep humans in control. A manifesto on bounded AI autonomy and human oversight — with the OCUP governance framework and a deterministic FPGA proof. Book coming soon.">
+<meta name="keywords" content="Human Intelligence, The Final Say, AI governance, human oversight, human in control, OCUP, FPGA, AMD Kria, bounded autonomy, AI safety, WAICO, OSAA, manifesto, In Hoc Una Sumus">
+<meta name="author" content="Temporal Authority Systems PBC">
+
+<!-- TODO: replace with the live production URL once deployed -->
+<link rel="canonical" href="https://thefinalsay.org/">
+
+<!-- Open Graph / social + ad preview card -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Human Intelligence, The Final Say — manifesto/book coming soon">
+<meta property="og:description" content="We love AI, but let's keep humans in control. A manifesto on bounded AI autonomy, human oversight, and the OCUP governance framework.">
+<meta property="og:image" content="https://thefinalsay.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://thefinalsay.org/">
+<meta property="og:site_name" content="The Final Say">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Human Intelligence, The Final Say — manifesto/book coming soon">
+<meta name="twitter:description" content="We love AI, but let's keep humans in control. A manifesto on bounded AI autonomy and human oversight.">
+<meta name="twitter:image" content="https://thefinalsay.org/og-image.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --void-black:  #05060a;   /* page background — deep space black */
+    --navy-line:   #23324a;   /* hairline / rule, dimmed to sit against black */
+    --ink-pale:    #d9e2f1;   /* mantra + quote text */
+    --ink-white:   #f4f7fb;   /* selective quote emphasis */
+    --ink-faint:   rgba(217,226,241,0.55);
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html, body{
+    height: 100%;
+    background: var(--void-black);
+  }
+
+  body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Sparse starfield — three layers of different star sizes, tile sizes and
+     opacity so the field reads as depth (distant/mid/near) rather than a
+     flat repeating grid. Fixed so it stays put as the page scrolls. */
+  .stars{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .stars span{
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-repeat: repeat;
+  }
+
+  .stars .far{
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.55), transparent 100%),
+      radial-gradient(1px 1px at 37% 62%, rgba(255,255,255,0.4), transparent 100%),
+      radial-gradient(1px 1px at 58% 30%, rgba(255,255,255,0.5), transparent 100%),
+      radial-gradient(1px 1px at 81% 74%, rgba(255,255,255,0.35), transparent 100%),
+      radial-gradient(1px 1px at 24% 88%, rgba(255,255,255,0.45), transparent 100%),
+      radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,0.4), transparent 100%);
+    background-size: 260px 260px;
+    opacity: 0.6;
+  }
+
+  .stars .mid{
+    background-image:
+      radial-gradient(1.4px 1.4px at 20% 40%, rgba(217,226,241,0.7), transparent 100%),
+      radial-gradient(1.4px 1.4px at 66% 20%, rgba(217,226,241,0.55), transparent 100%),
+      radial-gradient(1.4px 1.4px at 84% 66%, rgba(217,226,241,0.6), transparent 100%),
+      radial-gradient(1.4px 1.4px at 45% 85%, rgba(217,226,241,0.5), transparent 100%);
+    background-size: 420px 420px;
+    opacity: 0.55;
+  }
+
+  .stars .near{
+    background-image:
+      radial-gradient(1.8px 1.8px at 30% 30%, rgba(120,160,220,0.8), transparent 100%),
+      radial-gradient(1.8px 1.8px at 70% 55%, rgba(217,226,241,0.75), transparent 100%),
+      radial-gradient(1.8px 1.8px at 15% 75%, rgba(120,160,220,0.7), transparent 100%);
+    background-size: 640px 640px;
+    opacity: 0.5;
+  }
+
+  header, main, .quote, footer{
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Prominent scrolling language banner, pinned to the top of the page */
+  .ticker-wrap{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(5,6,10,0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--navy-line);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.6rem 0;
+  }
+
+  .ticker-track{
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker-scroll 42s linear infinite;
+    will-change: transform;
+  }
+
+  .ticker-track .ticker-item{
+    display: inline-block;
+    padding: 0 2.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+    color: var(--ink-pale);
+  }
+
+  .ticker-track .ticker-item[lang="ar"]{
+    font-family: 'Inter', 'Noto Naskh Arabic', 'Segoe UI', sans-serif;
+    font-weight: 500;
+  }
+
+  .ticker-track .ticker-sep{
+    color: rgba(214,168,84,0.65);
+    padding: 0 0.2rem;
+  }
+
+  @keyframes ticker-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation: none; }
+  }
+
+  .subhead{
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+    line-height: 1.6;
+    color: var(--ink-faint);
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+
+  header{
+    flex: 0 0 auto;
+    padding: 2.4rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--navy-line);
+  }
+
+  .header-inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: clamp(128px, 18vw, 208px);
+  }
+
+  .mantra{
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    text-align: center;
+    letter-spacing: 0.12em;
+    color: var(--ink-pale);
+  }
+
+  .mantra-en{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2.4vw, 1.85rem);
+  }
+
+  .mantra-zh{
+    font-family: 'Cormorant Garamond', 'Songti SC', 'Noto Serif SC', serif;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    font-size: clamp(1.1rem, 2.4vw, 1.85rem);
+  }
+
+  .mantra-dnld{
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .mantra-dnld img{
+    height: clamp(35px, 4.25vw, 50px); /* +125% */
+    width: auto;
+    display: block;
+  }
+
+  .mantra-dnld:hover{
+    transform: scale(1.06);
+    filter: drop-shadow(0 4px 14px rgba(60,140,255,0.45));
+  }
+
+  .crest{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: clamp(128px, 18vw, 208px);
+    width: auto;
+    z-index: 2;
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6));
+    pointer-events: none;
+  }
+
+  @media (max-width: 640px){
+    .header-inner{
+      flex-direction: column;
+      min-height: auto;
+      gap: 0.85rem;
+    }
+    .mantra{ flex: none; }
+    .crest{
+      position: static;
+      transform: none;
+      height: 152px;
+      order: -1;
+    }
+  }
+
+  main{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .cover-half{
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.75rem;
+    position: relative;
+  }
+
+  .cover-half::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72%;
+    height: 72%;
+    transform: translate(-50%, -50%);
+    filter: blur(48px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .cover-half.en::before{
+    background: radial-gradient(closest-side,
+                  rgba(140,175,230,0.38) 0%,
+                  rgba(90,130,195,0.20) 45%,
+                  rgba(90,130,195,0.08) 70%,
+                  transparent 85%);
+  }
+
+  .cover-half.zh::before{
+    background: radial-gradient(closest-side,
+                  rgba(230,80,70,0.36) 0%,
+                  rgba(210,150,60,0.20) 45%,
+                  rgba(210,150,60,0.08) 70%,
+                  transparent 85%);
+  }
+
+  .cover-half img{
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-half:first-child{
+    border-right: 1px solid var(--navy-line);
+  }
+
+  .cover-half img{
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine){
+    .cover-half img:hover{
+      /* magnification increased ~50% over the original 1.1x zoom */
+      transform: scale(1.15);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.7);
+      cursor: zoom-in;
+      z-index: 5;
+    }
+  }
+
+  .cover-label{
+    position: absolute;
+    bottom: 1.1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 760px){
+    .cover-half{ padding: 1.1rem 0.6rem; }
+    .cover-half img{ max-height: 70vh; }
+    .cover-label{ font-size: 0.6rem; letter-spacing: 0.08em; }
+  }
+
+  @media (max-width: 420px){
+    .cover-half{ padding: 0.7rem 0.35rem; }
+    .cover-half img{ max-height: 62vh; }
+  }
+
+  .quote{
+    border-top: 1px solid var(--navy-line);
+    padding: 3.4rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .quote p{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--ink-pale);
+    max-width: 68ch;
+    margin: 0 auto;
+  }
+
+  .quote .shared-boundary{
+    font-weight: 600;
+    color: var(--ink-white);
+  }
+
+  .quote p::before{ content: "\201C"; }
+  .quote p::after{ content: "\201D"; }
+
+  .fpga-notice{
+    border-top: 1px solid var(--navy-line);
+    padding: 3rem 1.5rem 3.4rem;
+    text-align: center;
+  }
+
+  .fpga-header-line1{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+    color: var(--ink-white);
+  }
+
+  .fpga-header-line2{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: clamp(1rem, 1.9vw, 1.3rem);
+    color: var(--ink-faint);
+    margin-top: 0.3rem;
+  }
+
+  .fpga-text{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    color: var(--ink-pale);
+    max-width: 68ch;
+    margin: 1.6rem auto 0;
+  }
+
+  .buttons-live{
+    border-top: 1px solid var(--navy-line);
+    padding: 3.6rem 1.5rem 3.6rem;
+    text-align: center;
+  }
+
+  .buttons-live-header{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+    color: var(--ink-pale);
+    margin-bottom: 2.4rem;
+  }
+
+  .quote-downloads{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.8rem, 3vw, 2.5rem);
+    padding: 0;
+  }
+
+  .scroll-cue{
+    font-size: clamp(1.625rem, 3.25vw, 2.375rem); /* +125% */
+    line-height: 1;
+    animation: bob 1.8s ease-in-out infinite;
+  }
+
+  @keyframes bob{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(6px); }
+  }
+
+  .dnld-stack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+  }
+
+  .dnld-stack a{
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .dnld-stack img{
+    height: clamp(42.5px, 5.75vw, 65px); /* +125% */
+    width: auto;
+    display: block;
+  }
+
+  .dnld-stack a:hover{
+    transform: scale(1.06);
+    filter: drop-shadow(0 4px 14px rgba(60,140,255,0.45));
+  }
+
+  .scroll-below{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-top: 2.2rem;
+  }
+
+  .notify{
+    margin-top: 2.8rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid var(--navy-line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .notify-label{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    color: var(--ink-pale);
+    text-align: center;
+  }
+
+  .notify-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+  }
+
+  .notify-form input[type="email"]{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+    min-width: 240px;
+    border-radius: 999px;
+    border: 1px solid var(--navy-line);
+    background: rgba(217,226,241,0.05);
+    color: var(--ink-white);
+    outline: none;
+  }
+
+  .notify-form input[type="email"]::placeholder{
+    color: var(--ink-faint);
+  }
+
+  .notify-form input[type="email"]:focus{
+    border-color: rgba(120,160,220,0.8);
+  }
+
+  .notify-form button{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(60,140,255,0.55);
+    background: linear-gradient(180deg, rgba(60,140,255,0.28), rgba(30,80,170,0.4));
+    color: var(--ink-white);
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  .notify-form button:hover{
+    transform: scale(1.04);
+    filter: brightness(1.12);
+  }
+
+  .notify-msg{
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  @media (max-width: 480px){
+    .quote-downloads{ gap: 1rem; }
+    .notify-form{ flex-direction: column; align-items: stretch; }
+    .notify-form input[type="email"]{ min-width: 0; }
+  }
+
+  .videos{
+    border-top: 1px solid var(--navy-line);
+  }
+
+  .video-block{
+    border-bottom: 1px solid var(--navy-line);
+  }
+
+  .video-label{
+    text-align: center;
+    padding: 1.6rem 1.5rem 0.9rem;
+    font-family: 'Cormorant Garamond', 'Songti SC', 'Noto Serif SC', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    letter-spacing: 0.14em;
+    color: var(--ink-pale);
+  }
+
+  .video-wrap{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-wrap iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .pdf-downloads{
+    border-top: 1px solid var(--navy-line);
+    padding: 3.2rem 1.5rem 3.6rem;
+  }
+
+  .pdf-download-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(1.6rem, 4vw, 3.2rem);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .pdf-download-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    flex: 1 1 240px;
+    max-width: 280px;
+  }
+
+  .pdf-download-col .pdf-dnld-label{
+    font-family: 'Cormorant Garamond', 'Songti SC', 'Noto Serif SC', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    color: var(--ink-pale);
+    text-align: center;
+  }
+
+  .pdf-cover-wrap{
+    position: relative;
+    display: inline-block;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .pdf-cover-wrap img.pdf-cover-img{
+    max-width: 100%;
+    width: min(260px, 78vw);
+    height: auto;
+    display: block;
+    box-shadow: 0 24px 55px rgba(0,0,0,0.55);
+  }
+
+  .pdf-cover-wrap .pdf-overlay-btn{
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    line-height: 0;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.6));
+  }
+
+  .pdf-cover-wrap .pdf-overlay-btn img{
+    height: clamp(37.5px, 5vw, 52.5px); /* +125% */
+    width: auto;
+    display: block;
+  }
+
+  .pdf-cover-wrap .pdf-overlay-btn:hover{
+    transform: translateX(-50%) scale(1.08);
+    filter: drop-shadow(0 5px 16px rgba(60,140,255,0.55));
+  }
+
+  @media (hover: hover) and (pointer: fine){
+    .pdf-cover-wrap:hover{
+      transform: scale(1.15);
+      box-shadow: 0 32px 70px rgba(0,0,0,0.65);
+      cursor: zoom-in;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="ticker-wrap" role="banner" aria-label="Site tagline, scrolling in multiple languages">
+    <div class="ticker-track">
+      <span class="ticker-item" lang="en">We love AI, but let's keep humans in control.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="zh">我们热爱人工智能，但要让人类保持掌控。</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="es">Amamos la IA, pero mantengamos el control humano.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="fr">Nous aimons l'IA, mais gardons le contrôle humain.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="ar" dir="rtl">نحب الذكاء الاصطناعي، لكن يجب أن يبقى الإنسان في موقع التحكم.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="ru">Мы любим ИИ, но люди должны сохранять контроль.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="en">We love AI, but let's keep humans in control.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="zh">我们热爱人工智能，但要让人类保持掌控。</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="es">Amamos la IA, pero mantengamos el control humano.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="fr">Nous aimons l'IA, mais gardons le contrôle humain.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="ar" dir="rtl">نحب الذكاء الاصطناعي، لكن يجب أن يبقى الإنسان في موقع التحكم.</span><span class="ticker-sep">✦</span><span class="ticker-item" lang="ru">Мы любим ИИ, но люди должны сохранять контроль.</span><span class="ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <div class="stars" aria-hidden="true">
+    <span class="far"></span>
+    <span class="mid"></span>
+    <span class="near"></span>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <div class="mantra">
+        <div class="mantra-en">In Hoc Una Sumus</div>
+        <a class="mantra-dnld" aria-label="Download free — English (coming soon)">
+          <img src="English_dnldFREE.png" alt="Download Free — English">
+        </a>
+      </div>
+      <img class="crest" src="bwrci-crest.png" alt="BWRCI crest — dragon shield, &quot;We're in this together&quot;">
+      <div class="mantra">
+        <div class="mantra-zh">在此同心</div>
+        <a class="mantra-dnld" aria-label="免费下载 — 中文（即将推出）">
+          <img src="Chinese_dnldFREE.png" alt="免费下载 — Chinese">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <p class="subhead">A manifesto on bounded AI autonomy and human oversight — proven with a deterministic hardware demonstration (OCUP / FPGA). Book coming soon.</p>
+
+  <main>
+    <div class="cover-half en">
+      <img src="cover-en.png" alt="Human Intelligence: The Final Say — English cover">
+      <div class="cover-label">English</div>
+    </div>
+    <div class="cover-half zh">
+      <img src="cover-zh.png" alt="人类智能：最终决定权 — Simplified Chinese cover (red edition)">
+      <div class="cover-label">简体中文</div>
+    </div>
+  </main>
+
+  <section class="quote">
+    <p>Let America build. Let China build. Let every region build.<br>
+    Let markets reveal the best autonomous systems&mdash;but let humanity establish the boundary <span class="shared-boundary">beneath them together.</span></p>
+  </section>
+
+  <section class="fpga-notice">
+    <div class="fpga-header-line1">September 2026 Preprint Edition</div>
+    <div class="fpga-header-line2">Before October 2026 Hardcover</div>
+    <p class="fpga-text">On an AMD Kria FPGA platform, we are completing a deterministic demonstration of bounded operational authority: an externally supplied grant permits protected operation; authority subsequently closes; the protected capability gates close with it; and the governed logic cannot simply give itself more time or reopen those gates. The evidence is being built to be repeatable, inspectable, hashed, and auditable&mdash;not merely demonstrated in a slide deck.</p>
+  </section>
+
+  <!-- PLACEHOLDER: downloads are not live yet — buttons below are inert
+       (no href) until the FPGA results/PDFs are complete. -->
+  <section class="buttons-live">
+    <div class="buttons-live-header">Buttons Live When FPGA Results Are Complete</div>
+    <div class="quote-downloads">
+      <span class="scroll-cue" aria-hidden="true">👇</span>
+      <div class="dnld-stack">
+        <a aria-label="Descárgalo gratis — Español (coming soon)">
+          <img src="Spanish_dnldFREE.png" alt="¡Descárgalo gratis! — Español">
+        </a>
+        <a aria-label="免费下载 — 中文（即将推出）">
+          <img src="Chinese_dnldFREE.png" alt="免费下载 — Chinese">
+        </a>
+        <a aria-label="Download Free — English (coming soon)">
+          <img src="English_dnldFREE.png" alt="Download Free — English">
+        </a>
+      </div>
+      <span class="scroll-cue" aria-hidden="true">👇</span>
+    </div>
+
+    <!-- TODO: point the form at a real backend (Formspree, Mailchimp, ConvertKit, etc.)
+         or swap the mailto: address below for the project's real inbox. Currently this
+         opens the visitor's email client with a pre-filled note — no server required. -->
+    <div class="notify">
+      <div class="notify-label">Get notified when the downloads go live</div>
+      <form class="notify-form" id="notifyForm">
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+        <button type="submit">Notify Me</button>
+      </form>
+      <div class="notify-msg" id="notifyMsg">Thanks — opening your email client to confirm.</div>
+    </div>
+
+    <div class="scroll-below">Scroll Below the Videos</div>
+  </section>
+
+  <section class="videos">
+    <div class="video-block">
+      <div class="video-label">Español</div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/N8n3DjT2PJo" title="The Final Say — Español" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="video-block">
+      <div class="video-label">中文</div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/miLtCuy-nrs" title="The Final Say — 中文" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="video-block">
+      <div class="video-label">English</div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/M6lz4Ypo_Tc" title="The Final Say — English" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDER: all three PDF downloads use the OCUP whitepaper (attached)
+       as a stand-in cover + file until each language's real booklet PDF is ready. -->
+  <section class="pdf-downloads">
+    <div class="pdf-download-row">
+      <div class="pdf-download-col">
+        <div class="pdf-dnld-label">Español</div>
+        <div class="pdf-cover-wrap">
+          <img class="pdf-cover-img" src="whitepaper-cover.png" alt="OCUP: The Better AI Race — WAICO/OSAA Bridge Whitepaper cover">
+          <a class="pdf-overlay-btn" href="OCUP_The_Better_AI_Race_WAICO_OSAA_Bridge_Whitepaper.pdf" download aria-label="Descárgalo gratis">
+            <img src="Spanish_dnldFREE.png" alt="¡Descárgalo gratis!">
+          </a>
+        </div>
+      </div>
+      <div class="pdf-download-col">
+        <div class="pdf-dnld-label">中文</div>
+        <div class="pdf-cover-wrap">
+          <img class="pdf-cover-img" src="whitepaper-cover.png" alt="OCUP: The Better AI Race — WAICO/OSAA Bridge Whitepaper cover">
+          <a class="pdf-overlay-btn" href="OCUP_The_Better_AI_Race_WAICO_OSAA_Bridge_Whitepaper.pdf" download aria-label="免费下载">
+            <img src="Chinese_dnldFREE.png" alt="免费下载">
+          </a>
+        </div>
+      </div>
+      <div class="pdf-download-col">
+        <div class="pdf-dnld-label">English</div>
+        <div class="pdf-cover-wrap">
+          <img class="pdf-cover-img" src="whitepaper-cover.png" alt="OCUP: The Better AI Race — WAICO/OSAA Bridge Whitepaper cover">
+          <a class="pdf-overlay-btn" href="OCUP_The_Better_AI_Race_WAICO_OSAA_Bridge_Whitepaper.pdf" download aria-label="Download Free">
+            <img src="English_dnldFREE.png" alt="Download Free">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Default Statcounter code for TheFinalSay.org
+http://TheFinalSay.org -->
+<script type="text/javascript">
+var sc_project=13355382; 
+var sc_invisible=0; 
+var sc_security="83a8af32"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13355382/0/83a8af32/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+<script>
+  // Static-site-friendly "notify me" capture: opens the visitor's email client
+  // with a pre-filled message. Replace NOTIFY_EMAIL, or swap this whole handler
+  // for a real form backend (Formspree/Mailchimp/ConvertKit), once one is wired up.
+  (function(){
+    var NOTIFY_EMAIL = 'hello@thefinalsay.org'; // TODO: replace with the real inbox
+    var form = document.getElementById('notifyForm');
+    var msg = document.getElementById('notifyMsg');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = form.email.value.trim();
+      if(!email) return;
+      var subject = encodeURIComponent('Notify me — Human Intelligence: The Final Say');
+      var body = encodeURIComponent('Please notify me when the FPGA results and downloads go live.\n\nMy email: ' + email);
+      window.location.href = 'mailto:' + NOTIFY_EMAIL + '?subject=' + subject + '&body=' + body;
+      if(msg){ msg.style.display = 'block'; }
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>
