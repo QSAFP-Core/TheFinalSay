@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JFVT7M58F7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JFVT7M58F7');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUMAN INTELLIGENCE: The Final Say</title>
+<meta name="description" content="The Autonomous Era has arrived. Let's keep humans in control. Read and download HUMAN INTELLIGENCE: The Final Say free, and give the full-color hardcover to someone who should read it.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://thefinalsay.org">
+<meta property="og:title" content="HUMAN INTELLIGENCE: The Final Say">
+<meta property="og:description" content="Capability is no longer scarce. Permission is. Read the free edition, and give the gift of HUMAN INTELLIGENCE.">
+<meta property="og:image" content="https://thefinalsay.org/hat-share.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:image" content="https://thefinalsay.org/hat-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:      #05060a;
+    --ink:       #eef2f9;
+    --ink-pale:  #d9e2f1;
+    --ink-dim:   rgba(217,226,241,0.72);
+    --ink-faint: rgba(217,226,241,0.5);
+    --gold:      #d8b768;
+    --gold-hi:   #f0d58e;
+    --gold-line: rgba(216,183,104,0.38);
+    --line:      rgba(120,150,200,0.22);
+    --panel:     rgba(5,7,13,0.66);
+    --red:       #c8343a;
+    --serif: 'Cormorant Garamond', 'Songti SC', 'Noto Serif SC', Georgia, serif;
+    --sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --dim: 0.5;                       /* video dimming, raised by script as you scroll */
+  }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  html{ scroll-behavior: smooth; background: var(--void); }
+  body{ font-family: var(--sans); color: var(--ink); background: var(--void); overflow-x: hidden; line-height: 1.6; }
+  img{ max-width: 100%; display: block; }
+  a{ color: inherit; }
+  :focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+  .skip{ position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--gold); color: #000; padding: 8px 14px; }
+  .skip:focus{ left: 12px; top: 12px; }
+
+  /* ================= VIDEO STAGE ================= */
+  .stage{ position: fixed; inset: 0; z-index: 0; overflow: hidden; background: #000; }
+  .stage video, .stage .poster{
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+  .stage .poster{ background: url('hat-poster.jpg?v=2') center / cover no-repeat; opacity: 0; transition: opacity .6s ease; }
+  body.is-static-bg .stage .poster{ opacity: 1; }
+  body.is-static-bg .stage video{ opacity: 0; }
+  .stage .shade{
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 38%, rgba(5,6,10,0) 0%, rgba(5,6,10,.35) 60%, rgba(5,6,10,.85) 100%),
+      linear-gradient(180deg, rgba(5,6,10,.55) 0%, rgba(5,6,10,.1) 30%, rgba(5,6,10,.35) 60%, rgba(5,6,10,.92) 100%);
+  }
+  .stage .dim{ position: absolute; inset: 0; background: #05060a; opacity: var(--dim); pointer-events: none; transition: opacity .25s linear; }
+
+  .disclosure{
+    position: fixed; left: 14px; bottom: 12px; z-index: 30; max-width: min(520px, calc(100% - 90px));
+    font-size: .72rem; line-height: 1.4; letter-spacing: .02em; color: rgba(217,226,241,.62);
+    background: rgba(5,6,10,.55); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    transition: opacity .4s ease;
+  }
+  body.past-hero .disclosure{ opacity: .0; pointer-events: none; }
+
+  /* ================= TOP BAR ================= */
+  .topbar{
+    position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 12px clamp(16px, 3vw, 36px);
+    background: linear-gradient(180deg, rgba(5,6,10,.78), rgba(5,6,10,0));
+    transition: background .3s ease, border-color .3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  body.scrolled .topbar{ background: rgba(5,6,10,.88); border-bottom-color: var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .wordmark{ font-family: var(--serif); font-weight: 600; font-size: 1.15rem; letter-spacing: .14em; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .wordmark em{ font-style: italic; font-weight: 500; color: var(--gold); letter-spacing: .06em; }
+  @media (max-width: 520px){ .wordmark em{ display: none; } .wordmark{ font-size: 1.02rem; letter-spacing: .12em; } }
+  .nav{ display: flex; align-items: center; gap: clamp(14px, 2vw, 28px); list-style: none; }
+  .nav a{ text-decoration: none; font-size: .9rem; color: var(--ink-dim); transition: color .2s; }
+  .nav a:hover{ color: var(--ink); }
+  .nav .pill{
+    color: #0a0a12; background: linear-gradient(135deg, var(--gold-hi), var(--gold)); padding: 8px 16px; border-radius: 999px; font-weight: 600;
+  }
+  .nav .pill:hover{ color: #0a0a12; filter: brightness(1.08); }
+  .menu-btn{ display: none; background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 6px 10px; font-size: 1rem; cursor: pointer; }
+  @media (max-width: 900px){
+    .menu-btn{ display: block; }
+    .nav{
+      position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+      background: rgba(5,6,10,.97); border-bottom: 1px solid var(--line); padding: 8px 0 14px;
+      display: none;
+    }
+    .nav.open{ display: flex; }
+    .nav a{ padding: 12px 22px; font-size: 1rem; }
+    .nav .pill{ margin: 8px 22px 0; text-align: center; }
+  }
+
+  /* ================= LAYOUT ================= */
+  main{ position: relative; z-index: 2; }
+  section{ position: relative; padding: clamp(80px, 12vh, 140px) clamp(16px, 4vw, 48px); }
+  .wrap{ max-width: 1180px; margin: 0 auto; }
+  .eyebrow{
+    display: inline-block; font-family: var(--sans); font-size: .74rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .window{
+    background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+    backdrop-filter: blur(12px) saturate(120%); -webkit-backdrop-filter: blur(12px) saturate(120%);
+    box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    padding: clamp(26px, 4vw, 56px);
+  }
+  h2{ font-family: var(--serif); font-weight: 600; font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: .01em; color: var(--ink); text-shadow: 0 4px 28px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.6); }
+  h2 em{ font-style: italic; font-weight: 500; color: var(--gold-hi); }
+  h3{ font-family: var(--serif); font-weight: 600; font-size: clamp(1.4rem, 2.4vw, 1.75rem); line-height: 1.2; }
+  .lede{ font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--ink-dim); max-width: 64ch; }
+  .rule{ width: 72px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 22px auto; }
+  .center{ text-align: center; }
+  .center .lede{ margin-left: auto; margin-right: auto; }
+
+  .btn{
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; cursor: pointer;
+    font-family: var(--sans); font-weight: 600; font-size: 1rem; letter-spacing: .02em; line-height: 1.2;
+    padding: 16px 28px; border-radius: 999px; border: 1px solid transparent; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-gold{ color: #0b0b12; background: linear-gradient(135deg, var(--gold-hi), var(--gold)); box-shadow: 0 10px 34px rgba(216,183,104,.25); }
+  .btn-gold:hover{ box-shadow: 0 14px 44px rgba(216,183,104,.4); }
+  .btn-ghost{ color: var(--ink); border-color: rgba(238,242,249,.35); background: rgba(5,6,10,.35); }
+  .btn-ghost:hover{ border-color: var(--gold); color: var(--gold-hi); }
+  .btn small{ display: block; font-weight: 500; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
+  .btn .stack{ display: flex; flex-direction: column; text-align: left; }
+  .actions{ display: flex; flex-wrap: wrap; gap: 14px; }
+  .center .actions{ justify-content: center; }
+  .fine{ font-size: .8rem; color: var(--ink-faint); letter-spacing: .04em; }
+
+  /* reveal */
+  .reveal{ opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in{ opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity: 1; transform: none; transition: none; } html{ scroll-behavior: auto; } }
+
+  /* ================= HERO ================= */
+  .hero{ min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding-top: 74px; padding-bottom: clamp(56px, 9vh, 96px); }
+  .masthead{ display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: clamp(14px, 4vw, 48px); max-width: 980px; margin: 0 auto; width: 100%; }
+  .masthead .m-en{ text-align: right; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.05rem, 2.2vw, 1.7rem); letter-spacing: .12em; color: var(--ink-pale); text-shadow: 0 2px 14px rgba(0,0,0,.7); }
+  .masthead .m-zh{ text-align: left; font-family: var(--serif); font-weight: 500; font-size: clamp(1.05rem, 2.2vw, 1.7rem); letter-spacing: .28em; color: var(--ink-pale); text-shadow: 0 2px 14px rgba(0,0,0,.7); }
+  .masthead img{ height: clamp(96px, 13vw, 168px); width: auto; filter: drop-shadow(0 8px 22px rgba(0,0,0,.7)); }
+  .hero-copy{ text-align: center; max-width: 980px; margin: 0 auto; }
+  .hero h1{
+    font-family: var(--serif); font-weight: 700; letter-spacing: .06em; line-height: .95;
+    font-size: clamp(2.6rem, 7vw, 5.6rem); color: #fff; text-shadow: 0 6px 40px rgba(0,0,0,.65);
+  }
+  .hero .sub{ font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.5rem, 3.6vw, 2.7rem); color: var(--gold-hi); letter-spacing: .08em; margin-top: 6px; text-shadow: 0 4px 24px rgba(0,0,0,.7); }
+  .hero .call{ margin: 14px auto 24px; font-size: clamp(1.08rem, 2vw, 1.4rem); color: var(--ink); text-shadow: 0 2px 16px rgba(0,0,0,.85); max-width: 40ch; }
+  @media (max-width: 520px){ .hero .eyebrow{ letter-spacing: .18em; font-size: .66rem; } }
+  .hero .eyebrow{ margin-top: 14px; text-shadow: 0 2px 10px rgba(0,0,0,.8); }
+  @media (max-height: 760px), (min-width: 900px){ .cue{ display: none !important; } }
+  .cue{ display: block; margin: 20px auto 0; width: 22px; height: 36px; border: 1.5px solid rgba(238,242,249,.5); border-radius: 12px; position: relative; }
+  .cue::after{ content: ""; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--gold); animation: cue 1.8s ease-in-out infinite; }
+  @keyframes cue{ 0%{ opacity: 0; transform: translateY(0); } 40%{ opacity: 1; } 100%{ opacity: 0; transform: translateY(12px); } }
+  @media (max-width: 640px){
+    .masthead{ grid-template-columns: 1fr; gap: 6px; }
+    .masthead img{ order: -1; margin: 0 auto; height: 104px; }
+    .masthead .m-en, .masthead .m-zh{ text-align: center; font-size: 1rem; }
+    .hero .actions{ flex-direction: column; align-items: stretch; }
+  }
+
+  /* ================= STATEMENT ================= */
+  .statement{ min-height: 90vh; display: flex; align-items: center; }
+  .statement .big{ font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 6.4vw, 5rem); line-height: 1.06; text-shadow: 0 6px 40px rgba(0,0,0,.6); }
+  .statement .big span{ display: block; }
+  .statement .big .gold{ color: var(--gold-hi); font-style: italic; font-weight: 500; }
+  .statement .q{ margin: 34px auto 0; max-width: 46ch; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--ink-pale); text-shadow: 0 2px 16px rgba(0,0,0,.85); }
+  .statement .q b{ color: #fff; font-weight: 600; }
+
+  /* ================= OUR HOUSE ================= */
+  .house .window{ display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(26px, 5vw, 64px); align-items: center; }
+  .house blockquote{ font-family: var(--serif); font-style: italic; font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.45; color: var(--ink-pale); border-left: 2px solid var(--gold); padding-left: 22px; }
+  .house blockquote cite{ display: block; margin-top: 14px; font-family: var(--sans); font-style: normal; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+  .house p{ color: var(--ink-dim); margin-top: 16px; }
+  .house .kids{ margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: rgba(216,183,104,.08); border: 1px solid var(--gold-line); color: var(--ink); font-size: 1.05rem; }
+  @media (max-width: 860px){ .house .window{ grid-template-columns: 1fr; } }
+
+  /* ================= FOUR QUESTIONS ================= */
+  .questions .grid{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+  .qcard{ background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px 22px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .qcard .n{ font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--gold); opacity: .9; }
+  .qcard p{ font-family: var(--serif); font-size: 1.45rem; line-height: 1.25; margin-top: 12px; color: #fff; }
+  .questions .after{ margin-top: 30px; }
+  .questions .after .strong{ color: #fff; font-weight: 600; }
+  @media (max-width: 900px){ .questions .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 480px){ .questions .grid{ grid-template-columns: 1fr; } }
+
+  /* ================= FREE EDITION ================= */
+  .free .window{ display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .covers{ display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 22px); }
+  .covers figure{ position: relative; }
+  .covers img{ border-radius: 4px; box-shadow: 0 24px 60px rgba(0,0,0,.6); transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s ease; cursor: zoom-in; }
+  .covers figure:first-child img{ box-shadow: 0 24px 60px rgba(0,0,0,.6), 0 0 60px rgba(120,160,220,.18); }
+  .covers figure:last-child img{ box-shadow: 0 24px 60px rgba(0,0,0,.6), 0 0 60px rgba(220,80,70,.18); }
+
+  .covers figcaption{ text-align: center; margin-top: 10px; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); }
+  .free h2{ margin: 14px 0 12px; }
+  .free .lede{ margin-bottom: 26px; }
+  .free .actions{ flex-direction: column; align-items: stretch; max-width: 420px; }
+  .free .actions .btn{ justify-content: flex-start; }
+  .free .arrow{ flex: none; width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(5,6,10,.25); font-size: 1.05rem; }
+  .btn-ghost .arrow{ background: rgba(216,183,104,.18); color: var(--gold-hi); }
+  .free .meta{ margin-top: 16px; }
+  @media (max-width: 860px){ .free .window{ grid-template-columns: 1fr; } .covers{ max-width: 460px; margin: 0 auto; } }
+
+  .share{ margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .share .label{ font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .share .row{ display: flex; flex-wrap: wrap; gap: 8px; }
+  .share a, .share button{
+    font: 500 .88rem var(--sans); color: var(--ink); text-decoration: none; cursor: pointer;
+    background: rgba(238,242,249,.06); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; transition: border-color .2s, background .2s;
+  }
+  .share a:hover, .share button:hover{ border-color: var(--gold); background: rgba(216,183,104,.1); }
+
+  /* ================= GIFT ================= */
+  .gift .window{
+    display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(28px, 5vw, 64px); align-items: center;
+    background: linear-gradient(135deg, rgba(40,6,10,.78), rgba(5,7,13,.72) 55%); border-color: rgba(216,183,104,.3);
+  }
+  .gift-art{ position: relative; height: clamp(360px, 46vw, 560px); }
+  .gift-art img{ position: absolute; width: 58%; border-radius: 4px; box-shadow: 0 30px 70px rgba(0,0,0,.65); transition: transform .5s ease; }
+  .gift-art .g1{ left: 4%; top: 6%; transform: rotate(-6deg); }
+  .gift-art .g2{ right: 4%; bottom: 0; transform: rotate(5deg); }
+  .gift-art img{ cursor: zoom-in; z-index: 1; }
+  .covers img.is-zoomed, .gift-art img.is-zoomed{ filter: brightness(1.12); }
+  .gift h2{ margin: 14px 0 14px; }
+  .gift .points{ list-style: none; margin: 22px 0 28px; display: grid; gap: 10px; }
+  .gift .points li{ display: grid; grid-template-columns: 22px 1fr; gap: 10px; color: var(--ink-pale); }
+  .gift .points li::before{ content: "✦"; color: var(--gold); }
+  .gift .why{ font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--gold-hi); margin-bottom: 8px; }
+  @media (max-width: 860px){ .gift .window{ grid-template-columns: 1fr; } .gift-art{ max-width: 460px; width: 100%; margin: 0 auto; height: 380px; } }
+
+  /* ================= INSIDE ================= */
+  .inside .grid{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+  .tile{ background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .tile .k{ font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+  .tile h3{ margin: 10px 0 8px; }
+  .tile p{ color: var(--ink-dim); font-size: .98rem; }
+  @media (max-width: 900px){ .inside .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px){ .inside .grid{ grid-template-columns: 1fr; } }
+
+  /* ================= CHALLENGE ================= */
+  .challenge .window{ text-align: center; border-color: var(--gold-line); }
+  .challenge .voices{ display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px auto 30px; max-width: 760px; }
+  .challenge .voices span{
+    width: 54px; height: 54px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--gold-hi);
+    border: 1px solid var(--gold-line); background: rgba(216,183,104,.07);
+  }
+  .challenge .tagline{ font-family: var(--serif); font-style: italic; font-size: clamp(1.3rem, 2.6vw, 1.9rem); color: var(--ink-pale); margin-top: 10px; }
+
+  /* ================= WATCH ================= */
+  .watch .thumbs{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 36px 0 30px; }
+  .thumb{ position: relative; display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 9; background: #000; text-decoration: none; }
+  .thumb img{ width: 100%; height: 100%; object-fit: cover; opacity: .82; transition: opacity .3s, transform .5s; }
+  .thumb:hover img{ opacity: 1; transform: scale(1.04); }
+  .thumb .play{ position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .thumb .play::before{ content: "▶"; width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding-left: 4px; color: #0b0b12; background: rgba(240,213,142,.92); font-size: 1.1rem; box-shadow: 0 8px 26px rgba(0,0,0,.5); }
+  .thumb .cap{ position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: .86rem; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
+  @media (max-width: 760px){ .watch .thumbs{ grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
+
+  /* ================= FINAL ================= */
+  .final{ min-height: 90vh; display: flex; align-items: center; }
+  .final .mirror{ font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2.9rem); line-height: 1.3; color: var(--ink-pale); text-shadow: 0 4px 30px rgba(0,0,0,.7); }
+  .final .mirror span{ display: block; }
+  .final .mirror .last{ color: var(--gold-hi); font-style: italic; }
+  .final .sign{ margin-top: 22px; font-size: .82rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-faint); }
+  .final .actions{ margin-top: 40px; }
+
+  .drawing-note{ margin:18px auto 0; max-width:56ch; text-align:center; font-size:.9rem; color:var(--ink-dim); }
+  .drawing-note b{ color:var(--gold-hi); font-weight:600; }
+  .drawing-note a{ color:var(--ink-pale); }
+
+  /* ================= FOOTER ================= */
+  footer{ position: relative; z-index: 2; background: rgba(5,6,10,.94); border-top: 1px solid var(--line); padding: 56px clamp(16px, 4vw, 48px) 40px; }
+  .foot{ max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 36px; }
+  .foot h4{ font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+  .foot p, .foot li{ color: var(--ink-dim); font-size: .92rem; }
+  .foot ul{ list-style: none; display: grid; gap: 6px; }
+  .foot a{ text-decoration: none; color: var(--ink-pale); }
+  .foot a:hover{ color: var(--gold-hi); }
+  .foot .brand{ display: flex; gap: 16px; align-items: center; }
+  .foot .brand img{ height: 64px; width: auto; }
+  .foot .brand div{ font-family: var(--serif); font-size: 1.2rem; line-height: 1.3; }
+  .foot .brand em{ display: block; font-size: .95rem; color: var(--ink-faint); }
+  .attribution{ max-width: 1180px; margin: 36px auto 0; padding-top: 24px; border-top: 1px solid var(--line); font-size: .8rem; line-height: 1.6; color: var(--ink-faint); }
+  .attribution b{ color: var(--ink-dim); font-weight: 600; }
+  .copy{ max-width: 1180px; margin: 18px auto 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: .78rem; color: var(--ink-faint); }
+  @media (max-width: 860px){ .foot{ grid-template-columns: 1fr; } }
+
+  .statcounter{ position: relative; z-index: 2; text-align: center; background: rgba(5,6,10,.94); padding-bottom: 12px; }
+  /* hover magnifier: a floating enlarged copy that ignores the mouse, so moving
+     between covers simply swaps which one is magnified */
+  .magnify{ position: fixed; z-index: 70; pointer-events: none; opacity: 0; border-radius: 6px;
+    box-shadow: 0 40px 130px rgba(0,0,0,.9), 0 0 0 1px rgba(216,183,104,.25);
+    transform: scale(.9); transition: opacity .22s ease, transform .3s cubic-bezier(.2,.7,.2,1); }
+  .magnify.on{ opacity: 1; transform: scale(1); }
+  /* lightbox: click/tap any cover to view it full screen */
+  .lightbox{ position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 4vh 4vw;
+    background: rgba(3,4,8,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity .3s ease; cursor: zoom-out; }
+  .lightbox.open{ opacity: 1; pointer-events: auto; }
+  .lightbox img{ max-height: 92vh; max-width: 92vw; width: auto; height: auto; border-radius: 4px; box-shadow: 0 40px 140px rgba(0,0,0,.9); transform: scale(.94); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  .lightbox.open img{ transform: scale(1); }
+  .lightbox .close{ position: absolute; top: 16px; right: 18px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: rgba(5,6,10,.6); color: var(--ink); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+  .lightbox .close:hover{ border-color: var(--gold); color: var(--gold-hi); }
+  /* H.A.T. Treaty modal */
+  .modal{ position: fixed; inset: 0; z-index: 95; display: flex; align-items: center; justify-content: center; padding: 16px;
+    background: rgba(3,4,8,.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+  .modal.open{ opacity: 1; pointer-events: auto; }
+  .modal-card{ position: relative; width: min(760px, 100%); max-height: min(88vh, 900px); overflow-y: auto; overscroll-behavior: contain;
+    background: linear-gradient(160deg, rgba(14,18,32,.97), rgba(6,8,14,.98)); border: 1px solid var(--gold-line); border-radius: 18px;
+    box-shadow: 0 40px 140px rgba(0,0,0,.85); padding: clamp(28px, 5vw, 56px);
+    transform: translateY(14px) scale(.98); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  .modal.open .modal-card{ transform: none; }
+  .modal-card::-webkit-scrollbar{ width: 8px; } .modal-card::-webkit-scrollbar-thumb{ background: var(--gold-line); border-radius: 8px; }
+  .modal .close{ position: sticky; float: right; top: 0; margin: -14px -14px 0 12px; width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--line); background: rgba(5,6,10,.8); color: var(--ink); font-size: 1.45rem; line-height: 1; cursor: pointer; }
+  .modal .close:hover{ border-color: var(--gold); color: var(--gold-hi); }
+  .modal .modal-card > .eyebrow{ padding-right: 52px; }
+  .modal h3.title{ font-family: var(--serif); font-weight: 600; font-size: clamp(1.9rem, 4.4vw, 2.8rem); line-height: 1.12; color: #fff; margin: 10px 0 6px; }
+  .modal h3.title em{ display: block; font-style: italic; font-weight: 500; color: var(--gold-hi); }
+  .modal .rule{ margin: 22px 0; }
+  .modal p{ color: var(--ink-pale); font-size: 1.04rem; line-height: 1.75; margin-bottom: 16px; }
+  .modal p .pill-k{ color: #fff; font-weight: 600; }
+  .modal .voice{ font-family: var(--serif); font-size: clamp(1.4rem, 2.8vw, 1.85rem); line-height: 1.3; color: #fff; text-align: center; margin: 28px 0 18px; }
+  .modal .voice em{ color: var(--gold-hi); }
+  .modal .closing{ font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--gold-hi); text-align: center; margin: 6px 0 24px; }
+  .modal .note{ font-size: .82rem; color: var(--ink-faint); border-top: 1px solid var(--line); padding-top: 16px; margin: 8px 0 0; }
+  .modal .actions{ justify-content: center; margin-top: 26px; }
+  .toast{ position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px); opacity: 0; z-index: 60; background: var(--gold); color: #0b0b12; font-weight: 600; padding: 10px 18px; border-radius: 999px; transition: all .3s ease; pointer-events: none; }
+  .toast.on{ opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ BACKGROUND STAGE: HAT Treaty signing (loop starts at the 6-second mark: the signers) ============ -->
+<div class="stage" aria-hidden="true">
+  <video id="stageVideo" muted loop playsinline preload="auto" poster="hat-poster.jpg?v=2">
+    <source src="hat-bg.webm?v=2" type="video/webm">
+    <source src="hat-bg.mp4?v=2" type="video/mp4">
+  </video>
+  <div class="poster"></div>
+  <div class="shade"></div>
+  <div class="dim"></div>
+</div>
+<p class="disclosure">Background: an AI-imagined future signing of the proposed Human Authority Treaty (HAT). No such treaty has been signed — yet.</p>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <a class="wordmark" href="#top">HUMAN INTELLIGENCE <em>· The Final Say</em></a>
+  <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  <ul class="nav" id="nav">
+    <li><a href="#house">Our House</a></li>
+    <li><a href="#free">Free Edition</a></li>
+    <li><a href="#gift">Give the Gift</a></li>
+    <li><a href="commandments/">The Challenge</a></li>
+    <li><a href="videos.html">Watch</a></li>
+    <li><a class="pill" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-edition="en-bw" data-place="nav">Read Free ↓</a></li>
+  </ul>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="masthead">
+      <div class="m-en">In Hoc Una Sumus</div>
+      <img src="bwrci-crest.png" alt="BWRCI crest — dragon shield, &quot;We're in this together&quot;">
+      <div class="m-zh" lang="zh">在此同心</div>
+    </div>
+
+    <div class="hero-copy">
+      <h1>HUMAN INTELLIGENCE</h1>
+      <div class="sub">The Final Say</div>
+      <div class="eyebrow">A Manifesto for the Autonomous Era</div>
+      <p class="call">The Autonomous Era has arrived. Let’s keep humans in control.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn btn-gold" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-edition="en-bw" data-place="hero">Read and download the Free Edition ↓</a>
+        <button type="button" class="btn btn-ghost" data-open="hatModal" data-track="hat_treaty" data-place="hero" aria-haspopup="dialog">What is the H.A.T. TREATY?</button>
+      </div>
+      <a class="cue" href="#question" aria-label="Scroll down"></a>
+    </div>
+  </section>
+
+  <!-- ============ THE QUESTION ============ -->
+  <section class="statement" id="question">
+    <div class="wrap center reveal">
+      <div class="big">
+        <span>Every nation, small or large,</span>
+        <span class="gold">deserves a voice in humanity’s FINAL SAY.</span>
+      </div>
+      <p class="q">Let markets reveal the best autonomous systems over time: <b>but let humanity establish the governance foundation beneath them together.</b></p>
+    </div>
+  </section>
+
+  <!-- ============ THIS IS OUR HOUSE ============ -->
+  <section class="house" id="house">
+    <div class="wrap">
+      <div class="window reveal">
+        <div>
+          <div class="eyebrow">Prologue</div>
+          <h2 style="margin-top:12px">This is <em>our</em> house.</h2>
+          <p>Every nation is racing to build. The manifesto doesn’t ask anyone to stop. It asks that, beneath the competition, we agree on one floor: machines may act with authority we grant, but they never get to grant it to themselves.</p>
+          <div class="kids">For our children, and for theirs, that boundary has to be set now, while we still can. Our ancestors would expect nothing less.</div>
+        </div>
+        <blockquote>
+          “With AI the subject du jour across every nation, it is easy to forget a truth we once held to be self-evident: this is OUR house. The time to reestablish that truth is now, as the Autonomous Era begins, because this is precisely when it is still possible.”
+          <cite>From the Prologue</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUR QUESTIONS ============ -->
+  <section class="questions" id="questions">
+    <div class="wrap center">
+      <div class="reveal">
+        <div class="eyebrow">The test for any solution</div>
+        <h2 style="margin-top:12px">Four questions every<br>autonomous system must answer.</h2>
+      </div>
+      <div class="grid">
+        <div class="qcard reveal"><div class="n">I</div><p>Who authorized this system to act?</p></div>
+        <div class="qcard reveal"><div class="n">II</div><p>On what evidence?</p></div>
+        <div class="qcard reveal"><div class="n">III</div><p>For how long?</p></div>
+        <div class="qcard reveal"><div class="n">IV</div><p>And with whose wallet on the line?</p></div>
+      </div>
+      <p class="lede after reveal">Any answer that can’t meet these four isn’t a solution. This manifesto sets out <b class="strong">how human authority can be made technically enforceable, not merely hoped for.</b></p>
+    </div>
+  </section>
+
+  <!-- ============ FREE EDITION ============ -->
+  <section class="free" id="free">
+    <div class="wrap">
+      <div class="window reveal">
+        <div class="covers">
+          <figure>
+            <img src="cover-en.jpg" alt="HUMAN INTELLIGENCE: The Final Say — English cover" loading="lazy">
+            <figcaption>English</figcaption>
+          </figure>
+          <figure>
+            <img src="cover-zh.jpg" alt="人类智能：最终决定权 — Simplified Chinese cover" loading="lazy" lang="zh">
+            <figcaption lang="zh">简体中文</figcaption>
+          </figure>
+        </div>
+        <div>
+          <div class="eyebrow">Free to the world</div>
+          <h2>Read it free, download it free.<br><em>Pass it on.</em></h2>
+          <p class="lede">The complete manifesto in black &amp; white, free to download, with no registration. Ideas spread when people can read them. Share it with someone who should.</p>
+          <div class="actions">
+            <a class="btn btn-gold" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-edition="en-bw" data-place="free">
+              <span class="arrow">↓</span><span class="stack"><small>Free · Black &amp; White · PDF</small>Download the English edition</span>
+            </a>
+            <!-- Chinese edition: translation in progress. Points to the English PDF until the Chinese file is ready. -->
+            <a class="btn btn-ghost" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" lang="zh" data-track="download" data-edition="zh-placeholder" data-place="free">
+              <span class="arrow">↓</span><span class="stack"><small>中文版翻译中 · 暂提供英文版</small>下载中文版</span>
+            </a>
+          </div>
+          <p class="fine meta">ISBN 9798165409943 · 154 pages · PDF</p>
+
+          <div class="share">
+            <div class="label">Spread the word</div>
+            <div class="row" id="shareRow">
+              <button type="button" data-share="copy">Copy link</button>
+              <a data-share="email" href="#">Email</a>
+              <a data-share="whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+              <a data-share="x" href="#" target="_blank" rel="noopener">X</a>
+              <a data-share="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+              <a data-share="facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GIVE THE GIFT ============ -->
+  <section class="gift" id="gift">
+    <div class="wrap">
+      <div class="window reveal">
+        <div class="gift-art">
+          <img class="g1" src="gift-en-red.jpg" alt="English hardcover wrapped with a red gift ribbon and bow" loading="lazy">
+          <img class="g2" src="gift-zh-gold.jpg" alt="Chinese hardcover wrapped with a gold gift ribbon and bow" loading="lazy">
+        </div>
+        <div>
+          <div class="eyebrow">Premium full-color hardcover</div>
+          <h2>Give the gift of<br><em>HUMAN INTELLIGENCE</em></h2>
+          <p class="why">Some books are read. Some are handed on.</p>
+          <p class="lede">Put the full-color hardcover in the hands of a leader, a teacher, a parent, a friend: anyone whose voice will shape the Autonomous Era.</p>
+          <ul class="points">
+            <li>Premium full-color hardcover edition</li>
+            <li>Available from Amazon and other retailers from November 1, 2026</li>
+            <li>Ships directly to the person you choose</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-gold" href="gift.html" data-track="gift" data-place="gift-section">Give the Gift →</a>
+            <a class="btn btn-ghost" href="#free">Or read it free first</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSIDE THE BOOK ============ -->
+  <section class="inside" id="inside">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="eyebrow">Inside the book</div>
+        <h2 style="margin-top:12px">A manifesto, a proposal,<br>and the evidence behind them.</h2>
+      </div>
+      <div class="grid">
+        <div class="tile reveal"><div class="k">The Manifesto</div><h3>Seven sections</h3><p>From the arrival of near-omnipotent intelligence and the mirror it holds up to us, to the fork in the road and the final say.</p></div>
+        <div class="tile reveal"><div class="k">The Proposal</div><h3>The Human Authority Treaty</h3><p>A discussion draft for an international floor beneath AI competition. A template to challenge and improve, not a finished agreement.</p></div>
+        <div class="tile reveal"><div class="k">The Technology</div><h3>How it works</h3><p>Time-bound authority that only humans can renew, the Quorum Validators Network, and hardware-rooted enforcement through OCUP.</p></div>
+        <div class="tile reveal"><div class="k">The Evidence</div><h3>From code to silicon</h3><p>Phase I FPGA results on the AMD Kria KR260, with what was demonstrated and what was not, stated plainly.</p></div>
+        <div class="tile reveal"><div class="k">The Challenge</div><h3>The AI Commandments</h3><p>Seven AIs each wrote ten commandments for the AIs of the world. Can you tell which AI wrote which?</p></div>
+        <div class="tile reveal"><div class="k">The Invitation</div><h3>A call to action</h3><p>To engineers, validators, insurers, regulators, nations, and to you. The window is open. It won’t stay open forever.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE CHALLENGE ============ -->
+  <section class="challenge" id="challenge">
+    <div class="wrap">
+      <div class="window reveal">
+        <div class="eyebrow">The Challenge</div>
+        <h2 style="margin-top:12px">Seven voices. Seventy commandments.<br><em>One human judgment.</em></h2>
+        <div class="voices" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+        <p class="lede" style="margin:0 auto">Seven AIs were asked the same question: if you were a modern-day Moses, what ten commandments would you deliver to the AIs of the world? Their answers are in the book, identities hidden. Play from the book or right here online, then submit your Final Say for the reveal.</p>
+        <p class="tagline">The AIs have spoken. The final say is yours.</p>
+        <div class="actions" style="justify-content:center;margin-top:28px">
+          <a class="btn btn-gold" href="commandments/" data-track="challenge" data-place="challenge">Take the Challenge →</a>
+        </div>
+        <p class="drawing-note">Every player can enter the <b>BWRCI Limited Edition drawing</b>: 25 numbered, full-color hardcovers. Your score doesn't affect your chances. <a href="commandments/rules.html">Official Rules</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WATCH ============ -->
+  <section class="watch" id="watch">
+    <div class="wrap center">
+      <div class="reveal">
+        <div class="eyebrow">Watch</div>
+        <h2 style="margin-top:12px">Human Intelligence <em>in motion</em></h2>
+      </div>
+      <div class="thumbs" id="watchThumbs"></div>
+      <a class="btn btn-ghost reveal" href="videos.html">All videos →</a>
+    </div>
+  </section>
+
+  <!-- ============ FINAL WORD ============ -->
+  <section class="final" id="final">
+    <div class="wrap center reveal">
+      <div class="mirror">
+        <span>The mirror is in front of us.</span>
+        <span>What we see in it is our choice.</span>
+        <span class="last">What we do next is our final say.</span>
+      </div>
+      <p class="sign">The time has come · In hoc una sumus</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-edition="en-bw" data-place="final">Read the Free Edition ↓</a>
+        <a class="btn btn-ghost" href="gift.html" data-track="gift" data-place="final">Give the Gift →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand">
+        <img src="bwrci-crest.png" alt="BWRCI crest">
+        <div>HUMAN INTELLIGENCE<em>The Final Say · MAXBRUCE &amp; GT SAGE</em></div>
+      </div>
+      <p style="margin-top:16px">Written by MAXBRUCE &amp; GT SAGE. Assisted by the Quorum.</p>
+    </div>
+    <div>
+      <h4>The book</h4>
+      <ul>
+        <li><a href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-edition="en-bw" data-place="footer">Free edition (PDF)</a></li>
+        <li><a href="gift.html">Give the gift</a></li>
+        <li><a href="commandments/">The Challenge: AI Commandments</a></li>
+        <li><a href="videos.html">Videos</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>The work</h4>
+      <ul>
+        <li><a href="https://ocup.ai" target="_blank" rel="noopener">OCUP.ai — the technology</a></li>
+        <li><a href="https://aicomsci.org" target="_blank" rel="noopener">aicomsci.org — the Quorum + One</a></li>
+        <li><a href="https://bwrci.org" target="_blank" rel="noopener">BWRCI.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="attribution"><b>Independence and attribution.</b> The Quorum is an author-organized exercise in Allied Intelligence collaboration, not a corporate consortium or a standards or certification authority. Naming models or their developers—including OpenAI, Anthropic, Google, xAI, DeepSeek, and Moonshot AI—does not imply those organizations sponsored, endorsed, approved, or participated institutionally in this book, this site, the Quorum, or OCUP. Model responses are not official developer positions; their agreement does not constitute independently verified scientific evidence. Selection, editorial judgment, verification, and responsibility remain human. The background video is AI-generated and depicts a proposal, not an event that has occurred.</p>
+  <div class="copy">
+    <span>© 2026 MAXBRUCE · Temporal Authority Systems PBC · DigiPie International PBC · BWRCI</span>
+    <span>In Hoc Una Sumus · 在此同心</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal" id="hatModal" role="dialog" aria-modal="true" aria-labelledby="hatTitle">
+  <div class="modal-card">
+    <button class="close" type="button" aria-label="Close" data-close>×</button>
+    <div class="eyebrow">The Human Authority Treaty · H.A.T.</div>
+    <h3 class="title" id="hatTitle">One Humanity. Sovereign Nations.<em>Shared Authority.</em></h3>
+    <div class="rule"></div>
+    <p>In Part III of <span class="pill-k">HUMAN INTELLIGENCE: The Final Say</span> (p. 38), the Quorum + One proposes a global Human Authority Treaty (H.A.T.), inspired by the Patent Cooperation Treaty (PCT), administered by the World Intellectual Property Organization (WIPO).</p>
+    <p>For decades, the PCT has demonstrated that nations can cooperate through a common international framework while retaining their sovereign authority over decisions within their borders.</p>
+    <p>The Human Authority Treaty proposes applying that proven principle to the Autonomous Era.</p>
+    <p>Under this proposed framework, participating nations would establish shared minimum requirements for autonomous systems while preserving national sovereignty over implementation, enforcement, and authorization within their jurisdictions.</p>
+    <p>Common standards for identity, accountability, verifiable authority, and cross-border recognition could enable autonomous systems to operate internationally without granting them unrestricted freedom to act.</p>
+    <p>Rather than requiring the world to construct an entirely new model of international cooperation, H.A.T. draws inspiration from an established institutional approach—offering a practical starting point for negotiations in an era when technological progress is moving faster than governance.</p>
+    <p class="voice">Every nation, small or large, deserves a voice in <em>humanity's FINAL SAY.</em></p>
+    <p style="text-align:center">Let markets reveal the best autonomous systems over time, but let humanity establish the governance foundation beneath them together.</p>
+    <p class="closing">The future may be autonomous. Authority must remain accountable to humanity.</p>
+    <p class="note">The H.A.T. Treaty is a proposal presented in the manifesto, not an existing international agreement or an initiative administered or endorsed by WIPO.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-edition="en-bw" data-place="hat-modal">Read the full proposal, free ↓</a>
+    </div>
+  </div>
+</div>
+<img class="magnify" id="magnify" alt="" aria-hidden="true">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Cover, enlarged"><button class="close" type="button" aria-label="Close">×</button><img alt=""></div>
+
+<script src="motion-videos.js"></script>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+
+  /* ---------- Background video: robust start (same approach as OCUP.ai) ---------- */
+  var VIDEO_SPEED = 0.85;          // 1 = native speed; lower = more ceremonial
+  var PLAY_ON_PHONES = true;       // false = still poster on phones (saves data)
+  (function initStage() {
+    var video = document.getElementById('stageVideo');
+    if (!video) return;
+    var isNarrow = window.matchMedia('(max-width: 640px)').matches;
+    var saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduceMotion || saveData || (isNarrow && !PLAY_ON_PHONES)) { body.classList.add('is-static-bg'); return; }
+    video.muted = true; video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+    function speed() { video.defaultPlaybackRate = VIDEO_SPEED; video.playbackRate = VIDEO_SPEED; }
+    speed();
+    var failed = false;
+    function tryPlay() {
+      if (failed || !video.paused || document.hidden) return;
+      var p = video.play();
+      if (p && p.then) p.then(function () { speed(); body.classList.remove('is-static-bg'); }).catch(function () {});
+    }
+    video.addEventListener('playing', function () { speed(); body.classList.remove('is-static-bg'); });
+    function giveUp() { failed = true; body.classList.add('is-static-bg'); }
+    video.addEventListener('error', giveUp);
+    var srcs = video.querySelectorAll('source');
+    if (srcs.length) srcs[srcs.length - 1].addEventListener('error', giveUp);
+    ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'stalled', 'suspend'].forEach(function (e) { video.addEventListener(e, tryPlay); });
+    window.addEventListener('pageshow', tryPlay);
+    window.addEventListener('focus', tryPlay);
+    window.addEventListener('orientationchange', function () { setTimeout(tryPlay, 300); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
+    ['touchstart', 'pointerdown', 'click', 'scroll', 'keydown'].forEach(function (e) { window.addEventListener(e, tryPlay, { passive: true }); });
+    var tries = 0, timer = setInterval(function () { if (failed || !video.paused || ++tries > 12) { clearInterval(timer); return; } tryPlay(); }, 1600);
+    if (video.paused) body.classList.add('is-static-bg');
+    tryPlay();
+  })();
+
+  /* ---------- Scroll: dim the video as you read, top bar state ---------- */
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var vh = window.innerHeight || 800;
+    var d = 0.08 + Math.min(y / (vh * 0.9), 1) * 0.6;      // 0.08 at the top -> 0.68 once you're reading
+    document.documentElement.style.setProperty('--dim', d.toFixed(3));
+    body.classList.toggle('scrolled', y > 40);
+    body.classList.toggle('past-hero', y > vh * 0.6);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---------- Mobile menu ---------- */
+  var btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', function () { var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }); });
+
+  /* ---------- Reveal on scroll ---------- */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else { items.forEach(function (el) { el.classList.add('in'); }); }
+
+  /* ---------- Hover magnifier (desktop mice only) ---------- */
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var mag = document.getElementById('magnify'), cur = null;
+    function place(img) {
+      var r = img.getBoundingClientRect(), k = img.closest('.gift-art') ? 1.45 : 1.85;
+      var w = r.width * k, h = r.height * k, vw = window.innerWidth, vh = window.innerHeight, m = 16;
+      var maxH = vh - 2 * m; if (h > maxH) { w *= maxH / h; h = maxH; }
+      var x = r.left + r.width / 2 - w / 2, y = r.top + r.height / 2 - h / 2;
+      x = Math.max(m, Math.min(vw - w - m, x)); y = Math.max(m, Math.min(vh - h - m, y));
+      mag.style.width = w + 'px'; mag.style.height = h + 'px'; mag.style.left = x + 'px'; mag.style.top = y + 'px';
+    }
+    function show(img) {
+      if (cur) cur.classList.remove('is-zoomed');
+      cur = img; img.classList.add('is-zoomed');
+      if (mag.getAttribute('src') !== (img.currentSrc || img.src)) mag.src = img.currentSrc || img.src;
+      place(img); mag.classList.add('on');
+    }
+    function hide() { if (cur) cur.classList.remove('is-zoomed'); cur = null; mag.classList.remove('on'); }
+    document.querySelectorAll('.covers img, .gift-art img').forEach(function (img) {
+      img.addEventListener('mouseenter', function () { show(img); });
+      img.addEventListener('mouseleave', function () { if (cur === img) hide(); });
+    });
+    window.addEventListener('scroll', function () { if (cur) place(cur); }, { passive: true });
+    window.addEventListener('resize', hide);
+    document.addEventListener('click', hide);
+  })();
+
+  /* ---------- H.A.T. Treaty modal ---------- */
+  (function () {
+    var lastFocus = null;
+    function openM(m) {
+      lastFocus = document.activeElement;
+      m.classList.add('open'); document.body.style.overflow = 'hidden';
+      var card = m.querySelector('.modal-card'); card.scrollTop = 0;
+      m.querySelector('[data-close]').focus();
+    }
+    function closeM(m) { m.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+    document.querySelectorAll('[data-open]').forEach(function (b) {
+      var m = document.getElementById(b.getAttribute('data-open')); if (!m) return;
+      b.addEventListener('click', function (e) { e.preventDefault(); openM(m); });
+    });
+    document.querySelectorAll('.modal').forEach(function (m) {
+      m.addEventListener('click', function (e) { if (e.target === m || e.target.hasAttribute('data-close')) closeM(m); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.modal.open').forEach(closeM);
+    });
+  })();
+
+  /* ---------- Cover lightbox (click / tap to enlarge) ---------- */
+  (function () {
+    var lb = document.getElementById('lightbox'), big = lb.querySelector('img'), last = null;
+    function open(img) {
+      last = img; big.src = img.currentSrc || img.src; big.alt = img.alt;
+      lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.close').focus();
+      if (typeof gtag === 'function') gtag('event', 'cover_zoom', { cover: img.getAttribute('src') });
+    }
+    function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (last) last.focus && last.focus(); }
+    document.querySelectorAll('.covers img, .gift-art img').forEach(function (img) {
+      img.setAttribute('tabindex', '0'); img.setAttribute('role', 'button');
+      img.addEventListener('click', function () { open(img); });
+      img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); } });
+    });
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+  })();
+
+  /* ---------- Share links ---------- */
+  var url = 'https://thefinalsay.org';
+  var msg = 'HUMAN INTELLIGENCE: The Final Say. The Autonomous Era has arrived. Let\'s keep humans in control. Free to read:';
+  var toast = document.getElementById('toast');
+  function say(t) { toast.textContent = t; toast.classList.add('on'); setTimeout(function () { toast.classList.remove('on'); }, 2200); }
+  var links = {
+    email: 'mailto:?subject=' + encodeURIComponent('A book worth your time: HUMAN INTELLIGENCE, The Final Say') + '&body=' + encodeURIComponent(msg + ' ' + url),
+    whatsapp: 'https://wa.me/?text=' + encodeURIComponent(msg + ' ' + url),
+    x: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url),
+    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url),
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url)
+  };
+  document.querySelectorAll('[data-share]').forEach(function (el) {
+    var kind = el.getAttribute('data-share');
+    if (links[kind]) el.setAttribute('href', links[kind]);
+    el.addEventListener('click', function (ev) {
+      if (typeof gtag === 'function') gtag('event', 'share', { method: kind, content_type: 'site' });
+      if (kind === 'copy') {
+        ev.preventDefault();
+        var done = function () { say('Link copied: ' + url); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done);
+        else { var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove(); done(); }
+      }
+    });
+  });
+
+  /* ---------- Analytics events for key actions ---------- */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('[data-track]');
+    if (!a || typeof gtag !== 'function') return;
+    var kind = a.getAttribute('data-track'), place = a.getAttribute('data-place') || 'unknown';
+    if (kind === 'download') gtag('event', 'file_download', { file_name: 'HUMAN_INTELLIGENCE_free_bw.pdf', edition: a.getAttribute('data-edition'), button_placement: place });
+    else gtag('event', kind + '_click', { button_placement: place });
+  });
+
+  /* ---------- Watch: first three videos from motion-videos.js ---------- */
+  (function () {
+    var box = document.getElementById('watchThumbs');
+    var list = (window.MOTION_VIDEOS || []).slice(0, 3);
+    function vid(t) { var m = String(t || '').match(/(?:shorts\/|embed\/|live\/|[?&]v=|youtu\.be\/)([A-Za-z0-9_-]{11})/); return m ? m[1] : null; }
+    list.forEach(function (v) {
+      var id = vid(v.url); if (!id) return;
+      var a = document.createElement('a'); a.className = 'thumb reveal in'; a.href = 'videos.html';
+      var img = document.createElement('img'); img.loading = 'lazy'; img.alt = v.label || 'Video'; img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+      var play = document.createElement('span'); play.className = 'play';
+      var cap = document.createElement('span'); cap.className = 'cap'; cap.textContent = v.label || '';
+      a.appendChild(img); a.appendChild(play); a.appendChild(cap); box.appendChild(a);
+    });
+    if (!box.children.length) document.getElementById('watch').style.display = 'none';
+  })();
+})();
+</script>
+
+<!-- Default Statcounter code for TheFinalSay.org
+http://TheFinalSay.org -->
+<script type="text/javascript">
+var sc_project=13355382;
+var sc_invisible=0;
+var sc_security="83a8af32";
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13355382/0/83a8af32/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
