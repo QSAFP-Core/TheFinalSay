@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JFVT7M58F7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JFVT7M58F7');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Give the Gift · HUMAN INTELLIGENCE</title>
+<meta name="description" content="Give the gift of HUMAN INTELLIGENCE: The Final Say. The full-color hardcover ships directly from Amazon to the person you choose, from November 1, 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thefinalsay.org/gift.html">
+<meta property="og:title" content="Give the gift of HUMAN INTELLIGENCE">
+<meta property="og:description" content="Some books are read. Some are handed on. Send the full-color hardcover to someone whose voice will shape the Autonomous Era.">
+<meta property="og:image" content="https://thefinalsay.org/gift-share.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thefinalsay.org/gift-share.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#05060a; --ink:#eef2f9; --ink-pale:#d9e2f1; --ink-dim:rgba(217,226,241,.74); --ink-faint:rgba(217,226,241,.5);
+    --gold:#d8b768; --gold-hi:#f0d58e; --gold-line:rgba(216,183,104,.38); --line:rgba(120,150,200,.22);
+    --panel:rgba(6,8,14,.72); --wine:rgba(40,6,10,.78);
+    --serif:'Cormorant Garamond','Songti SC','Noto Serif SC',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --dim:.25;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; background:var(--void); }
+  body{ font-family:var(--sans); color:var(--ink); background:var(--void); overflow-x:hidden; line-height:1.6; }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* ===== video stage (same film as the homepage) ===== */
+  .stage{ position:fixed; inset:0; z-index:0; overflow:hidden; background:#000; }
+  .stage video, .stage .poster{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .stage .poster{ background:url('hat-poster.jpg?v=2') center/cover no-repeat; opacity:0; transition:opacity .6s ease; }
+  body.is-static-bg .stage .poster{ opacity:1; }
+  body.is-static-bg .stage video{ opacity:0; }
+  .stage .shade{ position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse at 50% 52%, rgba(5,6,10,.15) 0%, rgba(5,6,10,.55) 55%, rgba(5,6,10,.92) 100%),
+                linear-gradient(180deg, rgba(5,6,10,.6) 0%, rgba(5,6,10,.2) 25%, rgba(5,6,10,.35) 70%, rgba(5,6,10,.95) 100%); }
+  .stage .dim{ position:absolute; inset:0; background:#05060a; opacity:var(--dim); pointer-events:none; transition:opacity .25s linear; }
+
+  /* ===== top bar (as on the homepage) ===== */
+  .topbar{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px clamp(16px,3vw,36px); background:linear-gradient(180deg,rgba(5,6,10,.8),rgba(5,6,10,0)); border-bottom:1px solid transparent; transition:background .3s, border-color .3s; }
+  body.scrolled .topbar{ background:rgba(5,6,10,.88); border-bottom-color:var(--line); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .wordmark{ font-family:var(--serif); font-weight:600; font-size:1.15rem; letter-spacing:.14em; text-decoration:none; color:var(--ink); white-space:nowrap; }
+  .wordmark em{ font-style:italic; font-weight:500; color:var(--gold); letter-spacing:.06em; }
+  @media (max-width:520px){ .wordmark em{ display:none; } .wordmark{ font-size:1.02rem; letter-spacing:.12em; } }
+  .nav{ display:flex; align-items:center; gap:clamp(14px,2vw,28px); list-style:none; }
+  .nav a{ text-decoration:none; font-size:.9rem; color:var(--ink-dim); transition:color .2s; }
+  .nav a:hover, .nav a[aria-current]{ color:var(--ink); }
+  .nav .pill{ color:#0a0a12; background:linear-gradient(135deg,var(--gold-hi),var(--gold)); padding:8px 16px; border-radius:999px; font-weight:600; }
+  .menu-btn{ display:none; background:none; border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:6px 10px; font-size:1rem; cursor:pointer; }
+  @media (max-width:900px){
+    .menu-btn{ display:block; }
+    .nav{ position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; background:rgba(5,6,10,.97); border-bottom:1px solid var(--line); padding:8px 0 14px; display:none; }
+    .nav.open{ display:flex; }
+    .nav a{ padding:12px 22px; font-size:1rem; }
+    .nav .pill{ margin:8px 22px 0; text-align:center; }
+  }
+
+  main{ position:relative; z-index:2; }
+  section{ position:relative; padding:clamp(80px,12vh,140px) clamp(16px,4vw,48px); }
+  .wrap{ max-width:1180px; margin:0 auto; }
+  .eyebrow{ display:inline-block; font-size:.74rem; font-weight:600; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); }
+  h1, h2{ font-family:var(--serif); font-weight:600; line-height:1.06; text-shadow:0 4px 28px rgba(0,0,0,.85); }
+  h1{ font-size:clamp(2.4rem,6vw,4.6rem); }
+  h2{ font-size:clamp(2.1rem,5vw,3.6rem); }
+  h1 em, h2 em{ font-style:italic; font-weight:500; color:var(--gold-hi); }
+  h3{ font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,2.4vw,1.9rem); line-height:1.15; }
+  .lede{ font-size:clamp(1.05rem,1.6vw,1.2rem); color:var(--ink-dim); max-width:60ch; }
+  .center{ text-align:center; } .center .lede{ margin-left:auto; margin-right:auto; }
+  .rule{ width:72px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:22px auto; }
+  .fine{ font-size:.8rem; color:var(--ink-faint); }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; cursor:pointer; font-weight:600; font-size:1rem; line-height:1.2;
+    padding:15px 26px; border-radius:999px; border:1px solid transparent; transition:transform .2s, box-shadow .2s, border-color .2s, color .2s; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-gold{ color:#0b0b12; background:linear-gradient(135deg,var(--gold-hi),var(--gold)); box-shadow:0 10px 34px rgba(216,183,104,.25); }
+  .btn-gold:hover{ box-shadow:0 14px 44px rgba(216,183,104,.42); }
+  .btn-ghost{ color:var(--ink); border-color:rgba(238,242,249,.35); background:rgba(5,6,10,.4); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
+  .btn .stack{ display:flex; flex-direction:column; text-align:left; }
+  .btn small{ font-weight:500; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.75; }
+  .actions{ display:flex; flex-wrap:wrap; gap:12px; }
+  .center .actions{ justify-content:center; }
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .9s ease, transform .9s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ===================== HERO: the two gift covers, as large as the screen allows ===================== */
+  .hero{ min-height:100vh; min-height:100svh; padding:72px clamp(10px,2vw,24px) 26px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  /* The box keeps the homepage composition (two 2:3 covers, overlapped, tilted) and scales with the viewport. */
+  .gifts{ position:relative; height:min(calc(100svh - 190px), calc((100vw - 28px) / 1.08)); aspect-ratio:1.08 / 1; max-height:1240px; }
+  @media (max-width:640px){ .gifts{ aspect-ratio:.94 / 1; height:calc((100vw - 16px) / .94); } .gifts img{ width:64%; } }
+  .gifts img{ position:absolute; width:58%; border-radius:5px; cursor:zoom-in;
+    box-shadow:0 50px 120px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.04); will-change:transform; }
+  .gifts .g1{ left:3%; top:2%; --r:-6deg; transform:rotate(var(--r)) translateY(var(--py,0)); z-index:1; }
+  .gifts .g2{ right:3%; bottom:0; --r:5deg; transform:rotate(var(--r)) translateY(var(--py2,0)); z-index:2; }
+  .gifts img:hover{ filter:brightness(1.08); }
+  /* entrance: the covers arrive like a gift being set down */
+  .gifts .g1{ animation:in1 1.4s cubic-bezier(.2,.8,.2,1) both; }
+  .gifts .g2{ animation:in2 1.4s .25s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes in1{ from{ opacity:0; transform:rotate(-14deg) translate(-60px,40px) scale(.94); } to{ opacity:1; transform:rotate(-6deg); } }
+  @keyframes in2{ from{ opacity:0; transform:rotate(14deg) translate(60px,60px) scale(.94); } to{ opacity:1; transform:rotate(5deg); } }
+  .glow{ position:absolute; inset:-8% -6%; z-index:0; pointer-events:none;
+    background:radial-gradient(ellipse at 58% 60%, rgba(236,196,87,.22), rgba(236,196,87,0) 60%); filter:blur(10px); animation:breathe 6s ease-in-out infinite; }
+  @keyframes breathe{ 0%,100%{ opacity:.7; } 50%{ opacity:1; } }
+  .hero .tag{ margin-top:18px; text-align:center; font-family:var(--serif); font-style:italic; font-size:clamp(1.2rem,2.2vw,1.6rem); color:var(--gold-hi); text-shadow:0 2px 18px rgba(0,0,0,.9); }
+  .cue{ margin-top:8px; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-faint); text-decoration:none; }
+  .cue:hover{ color:var(--gold-hi); }
+  @media (prefers-reduced-motion:reduce){ .gifts img, .glow{ animation:none !important; } .reveal{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } }
+
+  /* ===================== INTRO ===================== */
+  .intro{ padding-top:clamp(40px,8vh,90px); }
+  .intro p.why{ font-family:var(--serif); font-style:italic; font-size:clamp(1.3rem,2.4vw,1.7rem); color:var(--gold-hi); margin-top:10px; }
+
+  /* ===================== EDITIONS ===================== */
+  .editions{ display:grid; gap:clamp(40px,7vh,90px); margin-top:clamp(40px,6vh,70px); }
+  .ed{ display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(24px,4vw,56px); align-items:center;
+    background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:clamp(22px,3.5vw,44px);
+    backdrop-filter:blur(12px) saturate(120%); -webkit-backdrop-filter:blur(12px) saturate(120%); box-shadow:0 30px 80px rgba(0,0,0,.45); }
+  .ed:nth-child(even){ grid-template-columns:1fr 1.25fr; }
+  .ed:nth-child(even) .book{ order:2; }
+  .ed.limited{ background:linear-gradient(150deg,rgba(60,40,8,.55),rgba(6,8,14,.82) 55%); border-color:var(--gold-line); }
+  @media (max-width:860px){ .ed, .ed:nth-child(even){ grid-template-columns:1fr; } .ed:nth-child(even) .book{ order:0; } }
+  .ed .k{ font-size:.7rem; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); }
+  .ed h3{ margin:8px 0 10px; }
+  .ed p{ color:var(--ink-dim); }
+  .ed .price{ margin-top:14px; font-family:var(--serif); font-size:1.5rem; color:#fff; }
+  .ed .price small{ font-family:var(--sans); font-size:.78rem; color:var(--ink-faint); margin-left:8px; letter-spacing:.06em; }
+  .ed .actions{ margin-top:18px; }
+  .ed .actions .btn{ padding:12px 20px; font-size:.95rem; }
+
+  /* the seal + its explanation, set beside each open book */
+  .sealnote{ display:flex; gap:16px; align-items:center; margin-top:20px; padding:14px 16px; border-radius:14px; border:1px solid var(--gold-line); background:rgba(216,183,104,.06); }
+  .sealnote img{ width:84px; height:84px; flex:none; filter:drop-shadow(0 6px 18px rgba(216,183,104,.3)); }
+  .sealnote b{ display:block; color:var(--gold-hi); font-weight:600; font-size:.92rem; letter-spacing:.04em; }
+  .sealnote span{ font-size:.9rem; color:var(--ink-dim); }
+  @media (max-width:560px){ .sealnote img{ width:62px; height:62px; } .sealnote{ gap:12px; padding:12px; } }
+
+  /* ---- open-book placeholder (replace each .book with a real photo later: <img class="book-photo" src="..."> ) ---- */
+  .book{ perspective:1600px; display:flex; justify-content:center; }
+  .book-photo{ width:100%; border-radius:12px; box-shadow:0 30px 80px rgba(0,0,0,.6); }
+  .spread{ position:relative; width:100%; max-width:620px; aspect-ratio:1.42 / 1; display:grid; grid-template-columns:1fr 1fr;
+    transform:rotateX(14deg); transform-style:preserve-3d; filter:drop-shadow(0 34px 40px rgba(0,0,0,.7)); }
+  .page{ position:relative; padding:9% 9% 8%; overflow:hidden; background:#f4efe4; color:#2a2a2a; }
+  .page.l{ border-radius:6px 2px 2px 6px; background:linear-gradient(90deg,#efe9dc 0%,#f6f1e6 70%,#d9d1bf 100%); }
+  .page.r{ border-radius:2px 6px 6px 2px; background:linear-gradient(270deg,#efe9dc 0%,#f6f1e6 70%,#d9d1bf 100%); }
+  .spread::after{ content:""; position:absolute; left:50%; top:0; bottom:0; width:6%; transform:translateX(-50%);
+    background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.22) 45%,rgba(0,0,0,.28) 50%,rgba(0,0,0,.22) 55%,rgba(0,0,0,0)); pointer-events:none; }
+  .spread::before{ content:""; position:absolute; left:-1.2%; right:-1.2%; bottom:-2.6%; height:5%; border-radius:0 0 8px 8px; z-index:-1;
+    background:repeating-linear-gradient(0deg,#e8e1d2 0 2px,#cfc6b2 2px 3px); }
+  .page .runhead{ font:600 clamp(6px,.75vw,9px) var(--sans); letter-spacing:.24em; text-transform:uppercase; opacity:.55; }
+  .page .ttl{ margin-top:9%; font-family:var(--serif); font-weight:700; font-size:clamp(13px,1.9vw,24px); line-height:1.05; }
+  .page .lines{ margin-top:7%; display:grid; gap:clamp(4px,.55vw,7px); }
+  .page .lines i{ display:block; height:clamp(3px,.32vw,4px); border-radius:2px; background:rgba(40,40,40,.22); }
+  .page .lines i:nth-child(3n){ width:86%; } .page .lines i:nth-child(5n){ width:64%; }
+  .page .fig{ margin-top:8%; aspect-ratio:1.6/1; border-radius:4px; display:flex; align-items:center; justify-content:center; }
+  .page .folio{ position:absolute; bottom:5%; font:500 clamp(6px,.7vw,9px) var(--sans); opacity:.5; }
+  .page.l .folio{ left:9%; } .page.r .folio{ right:9%; }
+  .preview-tag{ position:absolute; left:50%; top:-14px; transform:translateX(-50%); z-index:3; white-space:nowrap;
+    font:600 .64rem var(--sans); letter-spacing:.24em; text-transform:uppercase; color:#0b0b12; background:var(--gold); padding:5px 12px; border-radius:999px; }
+  /* edition looks */
+  .bw .fig{ background:repeating-linear-gradient(135deg,#d6d6d6 0 6px,#c4c4c4 6px 12px); }
+  .bw .fig svg *{ stroke:#555; }
+  .color .page.l{ background:linear-gradient(90deg,#0b1222 0%,#101a30 70%,#070b16 100%); color:#e8eefb; }
+  .color .page.l .lines i{ background:rgba(200,215,240,.25); }
+  .color .fig{ background:radial-gradient(circle at 30% 40%,#4a8cff,#173a7a 60%,#0b1222); }
+  .color .page.r .fig{ background:linear-gradient(135deg,#a9101b,#e2333d 45%,#ecc457); }
+  .limited .page.r{ background:linear-gradient(270deg,#f3ead2 0%,#fbf5e6 70%,#ddd0ae 100%); }
+  .presented{ margin-top:10%; text-align:center; font-family:var(--serif); }
+  .presented .p1{ font-size:clamp(7px,.85vw,11px); letter-spacing:.28em; text-transform:uppercase; opacity:.6; }
+  .presented .p2{ margin-top:6%; font-style:italic; font-size:clamp(12px,1.6vw,20px); color:#6b4708; }
+  .presented .p3{ margin:5% auto 0; width:62%; border-top:1px solid rgba(107,71,8,.4); }
+  .emboss{ width:46%; margin:9% auto 0; aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#fff3c4,#ecc457 30%,#b9831a 70%,#6b4708);
+    box-shadow:inset 0 2px 4px rgba(255,255,255,.6), inset 0 -3px 6px rgba(0,0,0,.35), 0 4px 10px rgba(0,0,0,.25);
+    display:flex; align-items:center; justify-content:center; text-align:center; font:700 clamp(6px,.7vw,9px) var(--serif); letter-spacing:.12em; color:#4a3005; padding:10%; }
+
+  /* ===================== HOW TO GIFT ===================== */
+  .steps{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:40px; counter-reset:s; }
+  @media (max-width:860px){ .steps{ grid-template-columns:1fr; } }
+  .step{ background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px 24px; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .step::before{ counter-increment:s; content:counter(s); display:inline-flex; width:40px; height:40px; border-radius:50%; align-items:center; justify-content:center;
+    font-family:var(--serif); font-size:1.4rem; font-weight:700; color:#0b0b12; background:linear-gradient(135deg,var(--gold-hi),var(--gold)); margin-bottom:14px; }
+  .step h3{ font-size:1.45rem; margin-bottom:6px; }
+  .step p{ color:var(--ink-dim); font-size:.98rem; }
+
+  /* ===================== WHO ===================== */
+  .who{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:28px; }
+  .who span{ font-family:var(--serif); font-size:clamp(1.2rem,2.2vw,1.6rem); padding:8px 20px; border-radius:999px; border:1px solid var(--gold-line); background:rgba(5,6,10,.45); color:var(--ink-pale); }
+  .mirror{ font-family:var(--serif); font-size:clamp(1.6rem,4vw,2.8rem); line-height:1.3; color:var(--ink-pale); text-shadow:0 4px 30px rgba(0,0,0,.7); margin-top:40px; }
+  .mirror em{ color:var(--gold-hi); }
+
+  /* ===================== FOOTER ===================== */
+  footer{ position:relative; z-index:2; background:rgba(5,6,10,.95); border-top:1px solid var(--line); padding:44px clamp(16px,4vw,48px) 30px; }
+  .attribution{ max-width:1180px; margin:0 auto; font-size:.8rem; line-height:1.6; color:var(--ink-faint); }
+  .attribution b{ color:var(--ink-dim); }
+  .copy{ max-width:1180px; margin:16px auto 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; font-size:.78rem; color:var(--ink-faint); }
+  .copy a{ color:var(--ink-dim); }
+  .statcounter{ position:relative; z-index:2; text-align:center; background:rgba(5,6,10,.95); padding-bottom:12px; }
+
+  /* lightbox for the HD covers */
+  .lightbox{ position:fixed; inset:0; z-index:90; display:flex; align-items:center; justify-content:center; padding:3vh 3vw;
+    background:rgba(3,4,8,.94); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); opacity:0; pointer-events:none; transition:opacity .3s; cursor:zoom-out; }
+  .lightbox.open{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-height:94vh; max-width:94vw; width:auto; border-radius:4px; box-shadow:0 40px 140px rgba(0,0,0,.9); }
+  .lightbox .close{ position:absolute; top:16px; right:18px; width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:rgba(5,6,10,.6); color:var(--ink); font-size:1.5rem; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<!-- ============ BACKGROUND: the homepage film (H.A.T. Treaty signing) ============ -->
+<div class="stage" aria-hidden="true">
+  <video id="stageVideo" muted loop playsinline preload="auto" poster="hat-poster.jpg?v=2">
+    <source src="hat-bg.webm?v=2" type="video/webm">
+    <source src="hat-bg.mp4?v=2" type="video/mp4">
+  </video>
+  <div class="poster"></div>
+  <div class="shade"></div>
+  <div class="dim"></div>
+</div>
+
+<header class="topbar">
+  <a class="wordmark" href="./">HUMAN INTELLIGENCE <em>· The Final Say</em></a>
+  <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  <ul class="nav" id="nav">
+    <li><a href="./#house">Our House</a></li>
+    <li><a href="./#free">Free Edition</a></li>
+    <li><a href="gift.html" aria-current="page">Give the Gift</a></li>
+    <li><a href="commandments/">The Challenge</a></li>
+    <li><a href="videos.html">Watch</a></li>
+    <li><a class="pill" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-place="gift-nav">Read Free ↓</a></li>
+  </ul>
+</header>
+
+<main>
+  <!-- ============ HERO: the gift itself ============ -->
+  <section class="hero" aria-label="Give the gift of HUMAN INTELLIGENCE">
+    <div class="gifts" id="gifts">
+      <div class="glow"></div>
+      <img class="g1" src="gift-en-gold-diagonal.jpg" alt="HUMAN INTELLIGENCE: The Final Say, English hardcover wrapped with a diagonal gold ribbon and bow" tabindex="0">
+      <img class="g2" src="gift-zh-gold-diagonal.jpg" alt="人类智能 最终决定权, Chinese edition wrapped with a diagonal gold ribbon and bow" lang="zh" tabindex="0">
+    </div>
+    <p class="tag">Some books are read. Some are handed on.</p>
+    <a class="cue" href="#give">Give the gift ↓</a>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro center" id="give">
+    <div class="wrap reveal">
+      <span class="eyebrow">Give the gift</span>
+      <h1 style="margin-top:14px">Give the gift of<br><em>HUMAN INTELLIGENCE</em></h1>
+      <p class="why">Our house. Our children's future. Our final say.</p>
+      <div class="rule"></div>
+      <p class="lede">Send it straight to a leader, a teacher, a parent, a friend: anyone whose voice will shape the Autonomous Era. Available from Amazon and other retailers from November 1, 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ THE EDITIONS ============ -->
+  <section id="editions" style="padding-top:0">
+    <div class="wrap">
+      <div class="center reveal"><span class="eyebrow">Three editions</span><h2 style="margin-top:12px">Choose the one<br><em>that fits the hand it's going to.</em></h2></div>
+
+      <div class="editions">
+
+        <!-- FULL COLOR -->
+        <article class="ed reveal" id="color">
+          <div class="book color">
+            <!-- PLACEHOLDER: replace this .spread with a photo of the open full-color book -->
+            <div class="spread" role="img" aria-label="Preview of an open full-color copy (photo coming soon)">
+              <span class="preview-tag">Inside preview · coming soon</span>
+              <div class="page l"><div class="runhead">Part III · The H.A.T. Treaty</div><div class="ttl">One Humanity.<br>Sovereign Nations.</div><div class="fig"></div><div class="lines"><i></i><i></i><i></i><i></i></div><span class="folio">38</span></div>
+              <div class="page r"><div class="runhead">Human Intelligence</div><div class="lines"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="fig"></div><div class="lines"><i></i><i></i><i></i></div><span class="folio">39</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="k">The gift edition</div>
+            <h3>Full-color hardcover</h3>
+            <p>Every diagram, the H.A.T. Treaty and the AI Commandments, printed in full color, as they were designed to be seen. Made to sit on a desk, be passed across a table, and be kept.</p>
+            <div class="price">$29.95 <small>list price · retailers may vary</small></div>
+            <div class="sealnote">
+              <!-- PLACEHOLDER seal: swap for the full-color edition's own mark when ready -->
+              <img src="seal-hifs.webp" alt="" loading="lazy">
+              <div><b>The mark of the full-color edition</b><span>Seal and its meaning to be announced.</span></div>
+            </div>
+            <div class="actions">
+              <a class="btn btn-gold" data-buy="color" href="#" target="_blank" rel="noopener"><span class="stack"><small>Ships from Nov 1</small>Give the full-color hardcover</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- BLACK & WHITE -->
+        <article class="ed reveal" id="bw">
+          <div class="book bw">
+            <!-- PLACEHOLDER: replace this .spread with a photo of the open black & white book -->
+            <div class="spread" role="img" aria-label="Preview of an open black and white copy (photo coming soon)">
+              <span class="preview-tag">Inside preview · coming soon</span>
+              <div class="page l"><div class="runhead">The Challenge</div><div class="ttl">The AI<br>Commandments</div><div class="lines"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="folio">74</span></div>
+              <div class="page r"><div class="runhead">Voice 01</div><div class="lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="fig"></div><span class="folio">75</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="k">The reader's edition</div>
+            <h3>Black &amp; white edition</h3>
+            <p>The complete manifesto, word for word, at the lowest price. The same edition is free to read and download as a PDF, because ideas spread when people can afford them.</p>
+            <div class="price">$19.95 <small>list price · retailers may vary</small></div>
+            <div class="sealnote">
+              <!-- PLACEHOLDER seal: swap for the black & white edition's own mark when ready -->
+              <img src="seal-presentation.webp" alt="" loading="lazy">
+              <div><b>The mark of the reader's edition</b><span>Seal and its meaning to be announced.</span></div>
+            </div>
+            <div class="actions">
+              <a class="btn btn-gold" data-buy="bw" href="#" target="_blank" rel="noopener"><span class="stack"><small>Ships from Nov 1</small>Give the black &amp; white edition</span></a>
+              <a class="btn btn-ghost" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-place="gift-bw">Free PDF ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LIMITED EDITION -->
+        <article class="ed limited reveal" id="limited">
+          <div class="book limited">
+            <!-- PLACEHOLDER: replace this .spread with a photo of an open Limited Edition, showing the personalized seal -->
+            <div class="spread" role="img" aria-label="Preview of an open Limited Edition copy with its personalized seal (photo coming soon)">
+              <span class="preview-tag">Inside preview · coming soon</span>
+              <div class="page l"><div class="runhead">Limited Edition</div><div class="ttl">HUMAN<br>INTELLIGENCE</div><div class="lines"><i></i><i></i><i></i></div><span class="folio">i</span></div>
+              <div class="page r"><div class="presented"><div class="p1">Presented to</div><div class="p2">A leader of nations</div><div class="p3"></div></div><div class="emboss">With<br>thanks</div><span class="folio">ii</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="k">110 copies · By invitation</div>
+            <h3>The Limited Edition</h3>
+            <p>Signed, sealed as a BWRCI Presentation Copy, and personalized with an embossed seal bearing the recipient's name and a message of thanks. One hundred are reserved for leaders around the world.</p>
+            <div class="sealnote">
+              <img src="seal-hifs.webp" alt="BWRCI Presentation Copy seal" loading="lazy">
+              <div><b>The Presentation Copy seal</b><span>Set on the wrap of every Limited Edition, before it is handed to its recipient.</span></div>
+            </div>
+            <div class="sealnote" style="margin-top:10px">
+              <img src="seal-presentation.webp" alt="" loading="lazy">
+              <div><b>Ten go to readers</b><span>Play The AI Commandments challenge and enter the BWRCI drawing. Every player has the same chance, whatever their score.</span></div>
+            </div>
+            <div class="actions">
+              <a class="btn btn-gold" href="commandments/" data-track="challenge" data-place="gift-limited">Take the Challenge →</a>
+              <a class="btn btn-ghost" href="commandments/rules.html">Official Rules</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO SEND IT ============ -->
+  <section id="how">
+    <div class="wrap">
+      <div class="center reveal"><span class="eyebrow">Sending it</span><h2 style="margin-top:12px">It goes straight<br><em>to their door.</em></h2></div>
+      <div class="steps">
+        <div class="step reveal"><h3>Choose the edition</h3><p>Full color for a keepsake, black &amp; white for a reader. Both are available from Amazon and other retailers from November 1, 2026.</p></div>
+        <div class="step reveal"><h3>Ship it to them</h3><p>At checkout, enter their name and address as the shipping address. It ships directly to them, not to you.</p></div>
+        <div class="step reveal"><h3>Add your words</h3><p>Mark the order as a gift and add a short note. Tell them why you thought of them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO ============ -->
+  <section class="center" id="who">
+    <div class="wrap reveal">
+      <span class="eyebrow">Who should read it?</span>
+      <div class="who"><span>A leader</span><span>A teacher</span><span>A parent</span><span>A student</span><span>A friend</span><span>Someone who decides</span></div>
+      <p class="mirror">The future may be autonomous.<br><em>Authority must remain accountable to humanity.</em></p>
+      <div class="actions" style="margin-top:36px">
+        <a class="btn btn-gold" href="#editions">Give the Gift</a>
+        <a class="btn btn-ghost" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-place="gift-final">Or read it free first ↓</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="attribution"><b>Independence and attribution.</b> The Quorum is an author-organized exercise in Allied Intelligence collaboration, not a corporate consortium or a standards or certification authority. Naming models or their developers does not imply those organizations sponsored, endorsed, approved, or participated institutionally in this book, this site, the Quorum, or OCUP. Selection, editorial judgment, verification, and responsibility remain human. Prices are list prices and may vary by retailer. The background video is AI-generated and depicts a proposal, not an event that has occurred.</p>
+  <div class="copy">
+    <span>© 2026 MAXBRUCE · Temporal Authority Systems PBC · BWRCI · <a href="./">thefinalsay.org</a></span>
+    <span>In Hoc Una Sumus · 在此同心</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Cover, full size">
+  <button class="close" type="button" aria-label="Close">×</button>
+  <img alt="">
+</div>
+
+<script>
+/* Where the "Give …" buttons go. Paste each edition's Amazon product link here when the listings are live. */
+var BUY = {
+  color: 'https://www.amazon.com/s?k=HUMAN+INTELLIGENCE+The+Final+Say+MAXBRUCE&i=stripbooks',
+  bw:    'https://www.amazon.com/s?k=9798165409943&i=stripbooks'
+};
+
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+  function track(n, p){ try{ if (typeof gtag === 'function') gtag('event', n, p || {}); }catch(e){} }
+
+  document.querySelectorAll('[data-buy]').forEach(function (a) {
+    a.href = BUY[a.dataset.buy];
+    a.addEventListener('click', function () { track('gift_click', { edition: a.dataset.buy }); });
+  });
+  document.querySelectorAll('[data-track="download"]').forEach(function (a) {
+    a.addEventListener('click', function () { track('file_download', { file_name: 'HUMAN_INTELLIGENCE_bw.pdf', place: a.dataset.place }); });
+  });
+
+  /* ---------- background video: same robust start as the homepage ---------- */
+  var VIDEO_SPEED = 0.85, PLAY_ON_PHONES = true;
+  (function () {
+    var video = document.getElementById('stageVideo'); if (!video) return;
+    var isNarrow = window.matchMedia('(max-width: 640px)').matches;
+    var saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduceMotion || saveData || (isNarrow && !PLAY_ON_PHONES)) { body.classList.add('is-static-bg'); return; }
+    video.muted = true; video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+    function speed(){ video.defaultPlaybackRate = VIDEO_SPEED; video.playbackRate = VIDEO_SPEED; }
+    speed();
+    var failed = false;
+    function tryPlay(){
+      if (failed || !video.paused || document.hidden) return;
+      var p = video.play();
+      if (p && p.then) p.then(function(){ speed(); body.classList.remove('is-static-bg'); }).catch(function(){});
+    }
+    video.addEventListener('playing', function(){ speed(); body.classList.remove('is-static-bg'); });
+    function giveUp(){ failed = true; body.classList.add('is-static-bg'); }
+    video.addEventListener('error', giveUp);
+    var srcs = video.querySelectorAll('source'); if (srcs.length) srcs[srcs.length - 1].addEventListener('error', giveUp);
+    ['loadedmetadata','loadeddata','canplay','canplaythrough','stalled','suspend'].forEach(function(e){ video.addEventListener(e, tryPlay); });
+    window.addEventListener('pageshow', tryPlay); window.addEventListener('focus', tryPlay);
+    window.addEventListener('orientationchange', function(){ setTimeout(tryPlay, 300); });
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) tryPlay(); });
+    ['touchstart','pointerdown','click','scroll','keydown'].forEach(function(e){ window.addEventListener(e, tryPlay, { passive:true }); });
+    var tries = 0, t = setInterval(function(){ if (failed || !video.paused || ++tries > 12){ clearInterval(t); return; } tryPlay(); }, 1600);
+    if (video.paused) body.classList.add('is-static-bg');
+    tryPlay();
+  })();
+
+  /* ---------- scroll: dim the film as you read; covers drift apart slightly ---------- */
+  var g1 = document.querySelector('.gifts .g1'), g2 = document.querySelector('.gifts .g2');
+  var ticking = false;
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop, vh = window.innerHeight || 800;
+    var d = 0.22 + Math.min(y / (vh * 0.9), 1) * 0.5;
+    document.documentElement.style.setProperty('--dim', d.toFixed(3));
+    body.classList.toggle('scrolled', y > 40);
+    if (!reduceMotion && y < vh * 1.2){
+      g1.style.setProperty('--py', (-y * 0.06).toFixed(1) + 'px');
+      g2.style.setProperty('--py2', (y * 0.05).toFixed(1) + 'px');
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){ if (!ticking){ requestAnimationFrame(onScroll); ticking = true; } }, { passive:true });
+  window.addEventListener('resize', onScroll);
+  // once the entrance finishes, hand the transform back to the parallax variables
+  [g1, g2].forEach(function(img){ img.addEventListener('animationend', function(){ img.style.animation = 'none'; }); });
+  onScroll();
+
+  /* ---------- reveal on scroll ---------- */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:.12 });
+    items.forEach(function(el){ io.observe(el); });
+  } else items.forEach(function(el){ el.classList.add('in'); });
+
+  /* ---------- menu ---------- */
+  var btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', function(){ var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); }); });
+
+  /* ---------- lightbox: tap a cover to see it full size ---------- */
+  var lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'), last = null;
+  function open(img){ last = img; lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); body.style.overflow = 'hidden'; track('cover_zoom', { cover: img.getAttribute('src'), page: 'gift' }); }
+  function close(){ lb.classList.remove('open'); body.style.overflow = ''; if (last && last.focus) last.focus(); }
+  document.querySelectorAll('.gifts img').forEach(function(img){
+    img.addEventListener('click', function(){ open(img); });
+    img.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(img); } });
+  });
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
+
+<!-- Default Statcounter code for TheFinalSay.org http://TheFinalSay.org -->
+<script type="text/javascript">
+var sc_project=13355382;
+var sc_invisible=0;
+var sc_security="83a8af32";
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13355382/0/83a8af32/0/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
