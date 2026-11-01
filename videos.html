@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JFVT7M58F7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JFVT7M58F7');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Intelligence in Motion · Watch</title>
+<meta name="description" content="Human Intelligence in Motion: the ideas of HUMAN INTELLIGENCE: The Final Say, on screen. Welcome to our living room. Stay awhile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thefinalsay.org/videos.html">
+<meta property="og:title" content="Human Intelligence in Motion">
+<meta property="og:description" content="Welcome to our living room. Stay awhile.">
+<meta property="og:image" content="https://thefinalsay.org/hat-share.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://thefinalsay.org/hat-share.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://i.ytimg.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#05060a; --ink:#eef2f9; --ink-pale:#d9e2f1; --ink-dim:rgba(217,226,241,.74); --ink-faint:rgba(217,226,241,.5);
+    --gold:#d8b768; --gold-hi:#f0d58e; --gold-line:rgba(216,183,104,.38); --line:rgba(120,150,200,.22);
+    --serif:'Cormorant Garamond','Noto Serif SC','Songti SC',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; background:var(--void); }
+  body{ font-family:var(--sans); color:var(--ink); background:var(--void); overflow-x:hidden; line-height:1.6; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* the room: the H.A.T. still, held low like lamplight */
+  .room{ position:fixed; inset:0; z-index:0; background:url('hat-poster.jpg?v=2') center/cover no-repeat; }
+  .room::after{ content:""; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(216,183,104,.10), rgba(5,6,10,0) 55%),
+                linear-gradient(180deg, rgba(5,6,10,.78), rgba(5,6,10,.93) 45%, rgba(5,6,10,.97)); }
+
+  /* top bar (as on the homepage) */
+  .topbar{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px clamp(16px,3vw,36px); background:rgba(5,6,10,.88); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .wordmark{ font-family:var(--serif); font-weight:600; font-size:1.15rem; letter-spacing:.14em; text-decoration:none; color:var(--ink); white-space:nowrap; }
+  .wordmark em{ font-style:italic; font-weight:500; color:var(--gold); letter-spacing:.06em; }
+  @media (max-width:520px){ .wordmark em{ display:none; } .wordmark{ font-size:1.02rem; letter-spacing:.12em; } }
+  .nav{ display:flex; align-items:center; gap:clamp(14px,2vw,28px); list-style:none; }
+  .nav a{ text-decoration:none; font-size:.9rem; color:var(--ink-dim); transition:color .2s; }
+  .nav a:hover, .nav a[aria-current]{ color:var(--ink); }
+  .nav .pill{ color:#0a0a12; background:linear-gradient(135deg,var(--gold-hi),var(--gold)); padding:8px 16px; border-radius:999px; font-weight:600; }
+  .menu-btn{ display:none; background:none; border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:6px 10px; font-size:1rem; cursor:pointer; }
+  @media (max-width:900px){
+    .menu-btn{ display:block; }
+    .nav{ position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; background:rgba(5,6,10,.97); border-bottom:1px solid var(--line); padding:8px 0 14px; display:none; }
+    .nav.open{ display:flex; }
+    .nav a{ padding:12px 22px; font-size:1rem; }
+    .nav .pill{ margin:8px 22px 0; text-align:center; }
+  }
+
+  main{ position:relative; z-index:2; }
+  .wrap{ max-width:1280px; margin:0 auto; padding:0 clamp(16px,4vw,48px); }
+  .eyebrow{ display:inline-block; font-size:.74rem; font-weight:600; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); }
+
+  /* ===== heading ===== */
+  .head{ text-align:center; padding:clamp(120px,18vh,170px) 0 0; }
+  .head h1{ margin-top:14px; font-family:var(--serif); font-weight:700; font-size:clamp(2.5rem,6.6vw,5rem); line-height:1.02; letter-spacing:.01em; text-shadow:0 6px 40px rgba(0,0,0,.7); }
+  .head h1 em{ font-style:italic; font-weight:500; color:var(--gold-hi); }
+  .head .welcome{ margin-top:16px; font-family:var(--serif); font-style:italic; font-size:clamp(1.35rem,2.6vw,1.9rem); color:var(--ink-pale); }
+  .head .welcome b{ font-weight:500; color:var(--gold-hi); }
+  .rule{ width:72px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:24px auto; }
+  .head .lede{ max-width:58ch; margin:0 auto; color:var(--ink-dim); font-size:clamp(1rem,1.5vw,1.12rem); }
+
+  /* ===== the wall: three across on desktop, a scrolling feed on phones ===== */
+  .wall{ margin:clamp(48px,7vh,72px) auto 0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:52px clamp(18px,2.4vw,32px); align-items:start; }
+  @media (max-width:1024px){ .wall{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:640px){ .wall{ grid-template-columns:1fr; gap:44px; } }
+
+  .card{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
+  .card.in{ opacity:1; transform:none; }
+  .label{ font-size:.7rem; font-weight:600; letter-spacing:.2em; line-height:1.55; text-transform:uppercase; color:var(--gold); margin-bottom:12px;
+    min-height:3.1em; display:flex; align-items:flex-end; }   /* room for two lines, so every row of videos lines up */
+  @media (max-width:640px){ .label{ min-height:0; } }
+  .cjk{ font-style:normal !important; letter-spacing:.06em; }
+  .label span{ color:var(--ink-faint); font-weight:500; }
+  .frame{ position:relative; aspect-ratio:16/9; overflow:hidden; border-radius:10px; background:#05050f; border:1px solid rgba(216,183,104,.18);
+    box-shadow:0 22px 60px rgba(0,0,0,.6); transition:border-color .3s, box-shadow .3s, transform .3s; }
+  .card:hover .frame{ border-color:var(--gold-line); box-shadow:0 22px 60px rgba(0,0,0,.6), 0 0 34px rgba(216,183,104,.16); transform:translateY(-2px); }
+  .frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .card.tall .frame{ aspect-ratio:9/16; max-width:330px; margin:0 auto; border-radius:16px; }
+  .card.tall .label, .card.tall .caption{ max-width:330px; margin-left:auto; margin-right:auto; }
+  @media (max-width:640px){ .card.tall .frame, .card.tall .label, .card.tall .caption{ max-width:360px; } }
+
+  /* light-weight poster until tapped: the page stays fast even with a long wall */
+  .poster{ position:absolute; inset:0; width:100%; height:100%; border:0; padding:0; cursor:pointer; background:#05050f; }
+  .poster img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease, filter .3s; filter:saturate(1.02) brightness(.88); }
+  .card:hover .poster img{ transform:scale(1.03); filter:saturate(1.08) brightness(.95); }
+  .poster::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(5,6,10,0) 55%,rgba(5,6,10,.55)); }
+  .play{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2; width:68px; height:68px; border-radius:50%;
+    background:linear-gradient(135deg,var(--gold-hi),var(--gold)); box-shadow:0 10px 30px rgba(0,0,0,.5), 0 0 0 6px rgba(216,183,104,.18);
+    display:flex; align-items:center; justify-content:center; transition:transform .25s; }
+  .play::before{ content:""; margin-left:5px; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent #0b0b12; }
+  .card:hover .play{ transform:translate(-50%,-50%) scale(1.08); }
+  .caption{ margin-top:14px; font-family:var(--serif); font-style:italic; font-size:1.18rem; line-height:1.4; color:var(--ink-pale); }
+
+  /* ===== after the wall ===== */
+  .stay{ text-align:center; padding:clamp(80px,12vh,130px) 0 clamp(70px,10vh,110px); }
+  .stay p.mirror{ font-family:var(--serif); font-size:clamp(1.5rem,3.6vw,2.5rem); line-height:1.3; color:var(--ink-pale); }
+  .stay p.mirror em{ color:var(--gold-hi); }
+  .actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:32px; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; font-weight:600; font-size:.98rem; line-height:1.2;
+    padding:14px 24px; border-radius:999px; border:1px solid transparent; transition:transform .2s, border-color .2s, color .2s; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-gold{ color:#0b0b12; background:linear-gradient(135deg,var(--gold-hi),var(--gold)); box-shadow:0 10px 34px rgba(216,183,104,.25); }
+  .btn-ghost{ color:var(--ink); border-color:rgba(238,242,249,.35); background:rgba(5,6,10,.4); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
+  .more{ margin-top:26px; font-size:.9rem; }
+  .more a{ color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; }
+  .more a:hover{ color:var(--gold-hi); border-color:var(--gold); }
+
+  footer{ position:relative; z-index:2; background:rgba(5,6,10,.96); border-top:1px solid var(--line); padding:40px clamp(16px,4vw,48px) 28px; }
+  .attribution{ max-width:1180px; margin:0 auto; font-size:.8rem; line-height:1.6; color:var(--ink-faint); }
+  .attribution b{ color:var(--ink-dim); }
+  .copy{ max-width:1180px; margin:16px auto 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; font-size:.78rem; color:var(--ink-faint); }
+  .copy a{ color:var(--ink-dim); }
+  .statcounter{ position:relative; z-index:2; text-align:center; background:rgba(5,6,10,.96); padding-bottom:12px; }
+  @media (prefers-reduced-motion:reduce){ .card{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+<div class="room" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="wordmark" href="./">HUMAN INTELLIGENCE <em>· The Final Say</em></a>
+  <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  <ul class="nav" id="nav">
+    <li><a href="./#house">Our House</a></li>
+    <li><a href="./#free">Free Edition</a></li>
+    <li><a href="gift.html">Give the Gift</a></li>
+    <li><a href="commandments/">The Challenge</a></li>
+    <li><a href="videos.html" aria-current="page">Watch</a></li>
+    <li><a class="pill" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-place="videos-nav">Read Free ↓</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="wrap">
+    <header class="head">
+      <span class="eyebrow">Watch</span>
+      <h1>Human Intelligence<br><em>in Motion</em></h1>
+      <p class="welcome">Welcome to our living room. <b>Stay awhile.</b></p>
+      <div class="rule"></div>
+      <p class="lede">The ideas of the book, on screen: the Autonomous Era, the H.A.T. Treaty, OCUP, and the people's economy behind it all. Pull up a chair.</p>
+    </header>
+
+    <!-- The video list lives in motion-videos.js (next to this page): the same file the homepage uses for its three previews. -->
+    <div class="wall" id="wall" aria-label="Videos"></div>
+
+    <section class="stay">
+      <p class="mirror">The future may be autonomous.<br><em>Authority must remain accountable to humanity.</em></p>
+      <div class="actions">
+        <a class="btn btn-gold" href="blkwht-ISBN_9798165409943-HUMAN_INTELLIGENCE_FINAL.pdf" target="_blank" rel="noopener" data-track="download" data-place="videos-end">Read the free edition ↓</a>
+        <a class="btn btn-ghost" href="gift.html">Give the gift</a>
+        <a class="btn btn-ghost" href="commandments/">Take the Challenge</a>
+      </div>
+      <p class="more"><a href="https://bwrci.org/media.html" target="_blank" rel="noopener">The full BWRCI media library →</a></p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p class="attribution"><b>Independence and attribution.</b> The Quorum is an author-organized exercise in Allied Intelligence collaboration, not a corporate consortium or a standards or certification authority. Naming models or their developers does not imply those organizations sponsored, endorsed, approved, or participated institutionally in this book, this site, the Quorum, or OCUP. Selection, editorial judgment, verification, and responsibility remain human. Videos may include AI-generated imagery depicting proposals and possible futures, not events that have occurred.</p>
+  <div class="copy">
+    <span>© 2026 MAXBRUCE · Temporal Authority Systems PBC · BWRCI · <a href="./">thefinalsay.org</a></span>
+    <span>In Hoc Una Sumus · 在此同心</span>
+  </div>
+</footer>
+
+<script src="motion-videos.js"></script>
+<script>
+(function () {
+  function track(n, p){ try{ if (typeof gtag === 'function') gtag('event', n, p || {}); }catch(e){} }
+  var wall = document.getElementById('wall');
+  var list = window.MOTION_VIDEOS || [];
+
+  function videoId(text){
+    var m = String(text || '').match(/(?:shorts\/|embed\/|live\/|[?&]v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    if (m) return m[1];
+    var bare = String(text || '').trim();
+    return /^[A-Za-z0-9_-]{11}$/.test(bare) ? bare : null;
+  }
+
+  var playing = [];   // iframes that have been started, so starting a new one pauses the others
+  function pauseAll(except){
+    playing.forEach(function (f){
+      if (f !== except && f.contentWindow) f.contentWindow.postMessage(JSON.stringify({ event:'command', func:'pauseVideo', args:[] }), '*');
+    });
+  }
+
+  list.forEach(function (v, i){
+    var id = videoId(v.url); if (!id) return;
+    var tall = v.tall === true || /\/shorts\//.test(v.url || '');
+    var card = document.createElement('article');
+    card.className = 'card' + (tall ? ' tall' : '');
+
+    var label = document.createElement('div'); label.className = 'label';
+    var parts = String(v.label || '').split('·');
+    var inner = document.createElement('div'); inner.textContent = parts[0].trim();
+    if (parts.length > 1){ var sp = document.createElement('span'); sp.textContent = ' · ' + parts.slice(1).join('·').trim(); inner.appendChild(sp); }
+    label.appendChild(inner);
+
+    var frame = document.createElement('div'); frame.className = 'frame';
+    var btn = document.createElement('button'); btn.className = 'poster'; btn.type = 'button';
+    btn.setAttribute('aria-label', 'Play: ' + (v.label || v.caption || 'video'));
+    var img = document.createElement('img');
+    img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; img.alt = ''; img.loading = i < 3 ? 'eager' : 'lazy'; img.decoding = 'async';
+    btn.appendChild(img);
+    var play = document.createElement('span'); play.className = 'play'; play.setAttribute('aria-hidden', 'true'); btn.appendChild(play);
+    frame.appendChild(btn);
+
+    // Tap to swap the poster for the real player, already playing.
+    btn.addEventListener('click', function (){
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1';
+      ifr.title = v.caption || v.label || 'Video';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      ifr.referrerPolicy = 'strict-origin-when-cross-origin';
+      ifr.allowFullscreen = true;
+      frame.replaceChild(ifr, btn);
+      pauseAll(ifr); playing.push(ifr); watchFrame(ifr);
+      track('video_play', { video_id: id, video_title: v.label || '' });
+    });
+
+    var cap = document.createElement('p'); cap.className = 'caption'; cap.textContent = v.caption || '';
+    var CJK = /[\u3400-\u9fff]/;   // Chinese text: keep upright (no fake italic)
+    if (CJK.test(v.caption || '')) cap.classList.add('cjk');
+    if (CJK.test(v.label || '')) label.classList.add('cjk');
+    card.appendChild(label); card.appendChild(frame); card.appendChild(cap);
+    wall.appendChild(card);
+  });
+  if (!wall.children.length) wall.innerHTML = '<p class="lede" style="text-align:center;grid-column:1/-1">Videos are on their way. Check back soon.</p>';
+
+  // Cards drift in as you scroll; on phones a video pauses once it's scrolled mostly away.
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var phone = window.matchMedia('(max-width: 768px)');
+  var cards = wall.querySelectorAll('.card');
+  if ('IntersectionObserver' in window && !reduce){
+    var ioIn = new IntersectionObserver(function (es){ es.forEach(function (e){ if (e.isIntersecting){ e.target.classList.add('in'); ioIn.unobserve(e.target); } }); }, { threshold:.08 });
+    cards.forEach(function (c){ ioIn.observe(c); });
+  } else cards.forEach(function (c){ c.classList.add('in'); });
+  var ioOut = 'IntersectionObserver' in window ? new IntersectionObserver(function (es){
+    if (!phone.matches) return;
+    es.forEach(function (e){ if (e.intersectionRatio < .35 && e.target.contentWindow) e.target.contentWindow.postMessage(JSON.stringify({ event:'command', func:'pauseVideo', args:[] }), '*'); });
+  }, { threshold:[0, .35] }) : null;
+  function watchFrame(f){ if (ioOut) ioOut.observe(f); }
+
+  // menu + downloads
+  var mb = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  mb.addEventListener('click', function (){ var o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.querySelectorAll('a').forEach(function (a){ a.addEventListener('click', function (){ nav.classList.remove('open'); }); });
+  document.querySelectorAll('[data-track="download"]').forEach(function (a){ a.addEventListener('click', function (){ track('file_download', { file_name:'HUMAN_INTELLIGENCE_bw.pdf', place:a.dataset.place }); }); });
+})();
+</script>
+
+<!-- Default Statcounter code for TheFinalSay.org http://TheFinalSay.org -->
+<script type="text/javascript">
+var sc_project=13355382;
+var sc_invisible=0;
+var sc_security="83a8af32";
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13355382/0/83a8af32/0/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
