@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>/* thefinalsay.org serves /press without a trailing slash, which breaks relative image paths: send visitors to /press/ */
+  if (/\/press$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
 <!-- Google tag (gtag.js) — same property as the main site -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFVT7M58F7"></script>
 <script>
@@ -47,12 +49,12 @@ window.PRESS = {
   researchBrief:   'files/HUMAN_INTELLIGENCE_Research_Brief.pdf',
   talkspressoOverview: 'files/HUMAN_INTELLIGENCE_Talkspresso_Overview.pdf',
   quoteSheet:      null,   // e.g. 'files/HUMAN_INTELLIGENCE_Approved_Quotations.pdf'
-  hatSummary:      null,   // HAT executive summary PDF, when approved for publication
+  hatSummary:      'files/HAT_Executive_Summary_Discussion_Draft_EN.pdf',
   evidenceRecord:  null,   // Phase I evidence document, when approved for publication
   talkspresso:     null,   // Talkspresso destination URL (to be supplied)
   talkspressoVideo:null,   // Talkspresso demo video: YouTube/Vimeo embed URL or 'files/talkspresso-demo.mp4'
   /* Existing, already-published contact mechanisms (change if a dedicated press address is created): */
-  mediaEmail:      'briefings@ocup.ai',
+  mediaEmail:      'press@thefinalsay.org',
   conversations:   'https://talkspresso.com/maxbruce'
 };
 </script>
@@ -377,6 +379,7 @@ window.PRESS = {
         <p class="stmt">An international invitation to explore humanity’s enduring authority in the age of autonomous intelligence.</p>
         <div class="actions">
           <a class="btn btn-gold" data-link="pressKitZip" data-soon data-dl="press_kit_zip" download>Download Complete Press Kit ↓</a>
+          <a class="btn btn-ghost" data-link="hatSummary" target="_blank" rel="noopener" data-dl="hat_summary" data-place="hero">H.A.T. Executive Summary ↓</a>
           <a class="btn btn-ghost" href="#assets">Explore Media Resources →</a>
         </div>
         <div class="facts">
@@ -676,6 +679,7 @@ window.PRESS = {
         <a class="mat" data-link="factSheet" target="_blank" rel="noopener" data-dl="fact_sheet"><span class="ic">PDF</span><span><b>Book fact sheet</b><span>Editions, formats, languages, availability</span></span></a>
         <a class="mat" data-link="authorBios" target="_blank" rel="noopener" data-dl="author_bios"><span class="ic">PDF</span><span><b>Author biographies</b><span>MAXBRUCE &amp; GT SAGE</span></span></a>
         <a class="mat" data-link="quoteSheet" target="_blank" rel="noopener" data-dl="quote_sheet"><span class="ic">PDF</span><span><b>Approved quotation sheet</b><span>Verified wording and attribution</span></span></a>
+        <a class="mat" data-link="hatSummary" target="_blank" rel="noopener" data-dl="hat_summary"><span class="ic">PDF</span><span><b>H.A.T. executive summary</b><span>International discussion draft · 2 pages</span></span></a>
         <a class="mat" data-link="researchBrief" target="_blank" rel="noopener" data-dl="research_brief"><span class="ic">PDF</span><span><b>Research brief: HAT · OCUP · KR260</b><span>Proposals and Phase I result, with qualifications</span></span></a>
         <a class="mat" data-link="talkspressoOverview" target="_blank" rel="noopener" data-dl="talkspresso_overview"><span class="ic">PDF</span><span><b>Talkspresso overview</b><span>Cyberg learning &amp; planned outreach</span></span></a>
         <a class="mat" href="../HUMAN_INTELLIGENCE_Free_Edition.pdf" target="_blank" rel="noopener" data-dl="free_en"><span class="ic">PDF</span><span><b>The book · free edition (English)</b><span>Complete text, black &amp; white</span></span></a>
