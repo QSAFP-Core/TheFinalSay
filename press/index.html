@@ -51,7 +51,7 @@ window.PRESS = {
   quoteSheet:      null,   // e.g. 'files/HUMAN_INTELLIGENCE_Approved_Quotations.pdf'
   hatSummary:      'files/HAT_Executive_Summary_Discussion_Draft_EN.pdf',
   evidenceRecord:  null,   // Phase I evidence document, when approved for publication
-  talkspresso:     null,   // Talkspresso destination URL (to be supplied)
+  talkspresso:     'https://talkspresso.com/maxbruce',   // MAXBRUCE's page on Talkspresso (an independent platform)
   talkspressoVideo:null,   // Talkspresso demo video: YouTube/Vimeo embed URL or 'files/talkspresso-demo.mp4'
   /* Existing, already-published contact mechanisms (change if a dedicated press address is created): */
   mediaEmail:      'press@thefinalsay.org',
@@ -346,6 +346,37 @@ window.PRESS = {
     padding:10px 16px; border-radius:10px; font-size:.88rem; opacity:0; pointer-events:none; transition:opacity .25s, transform .25s; }
   .toast.on{ opacity:1; transform:translateX(-50%) translateY(0); }
 </style>
+<!-- Independence & Attribution (universal) -->
+<style>
+  .ia-wrap{ margin-top: 22px; }
+  .ia-pill{ --ia-c: var(--ia-accent, #d8b768);
+    display: inline-flex; align-items: center; gap: 12px; cursor: pointer;
+    padding: 9px 22px 9px 9px; border-radius: 999px; border: 1px solid rgba(238,242,249,.32); background: rgba(5,6,10,.45);
+    color: #eef2f9; font: 600 .74rem/1 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; letter-spacing: .24em; text-transform: uppercase;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: border-color .2s, color .2s, background .2s; }
+  .ia-pill:hover, .ia-pill:focus-visible{ border-color: var(--ia-c); color: var(--ia-c); background: rgba(5,6,10,.7); }
+  .ia-pill .ia-i{ flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid currentColor; display: inline-flex; align-items: center; justify-content: center;
+    font: italic 600 1rem/1 Georgia, 'Times New Roman', serif; letter-spacing: 0; text-transform: none; }
+  @media (max-width: 420px){ .ia-pill{ letter-spacing: .14em; font-size: .68rem; padding-right: 16px; } }
+  .ia-overlay{ position: fixed; inset: 0; z-index: 120; display: flex; align-items: center; justify-content: center; padding: 16px;
+    background: rgba(3,4,8,.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+  .ia-overlay.open{ opacity: 1; pointer-events: auto; }
+  .ia-card{ --ia-c: var(--ia-accent, #d8b768); position: relative; width: min(640px, 100%); max-height: 88vh; overflow-y: auto; overscroll-behavior: contain;
+    background: linear-gradient(160deg, rgba(14,18,32,.97), rgba(6,8,14,.98)); border: 1px solid rgba(216,183,104,.38); border-radius: 18px;
+    box-shadow: 0 40px 140px rgba(0,0,0,.85); padding: clamp(26px, 5vw, 46px); color: #eef2f9; text-align: left;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; transform: translateY(14px) scale(.98); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  .ia-overlay.open .ia-card{ transform: none; }
+  .ia-close{ position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(120,150,200,.3);
+    background: rgba(5,6,10,.8); color: #eef2f9; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+  .ia-close:hover{ border-color: var(--ia-c); color: var(--ia-c); }
+  .ia-eyebrow{ font-size: .7rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--ia-c); }
+  .ia-title{ font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(1.8rem, 4.2vw, 2.4rem); line-height: 1.12; margin: 8px 48px 4px 0; color: #fff; }
+  .ia-sub{ color: rgba(217,226,241,.72); font-size: .98rem; margin-bottom: 22px; }
+  .ia-list{ list-style: none; display: grid; gap: 14px; margin: 0; padding: 0; }
+  .ia-list li{ display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding: 14px 16px; border-radius: 12px;
+    border: 1px solid rgba(120,150,200,.2); background: rgba(5,6,10,.45); color: #d9e2f1; font-size: .97rem; line-height: 1.6; }
+  .ia-list li span:first-child{ font-size: 1.3rem; line-height: 1.2; }
+</style>
 </head>
 <body>
 <script>/* Preview mode: /press/?preview=1 shows every placeholder with a label */
@@ -382,6 +413,7 @@ window.PRESS = {
           <a class="btn btn-ghost" data-link="hatSummary" target="_blank" rel="noopener" data-dl="hat_summary" data-place="hero">H.A.T. Executive Summary ↓</a>
           <a class="btn btn-ghost" href="#assets">Explore Media Resources →</a>
         </div>
+      <div class="ia-wrap"><button type="button" class="ia-pill" data-ia-open data-place="hero" aria-haspopup="dialog" aria-controls="iaModal"><span class="ia-i" aria-hidden="true">i</span>Independence &amp; Attribution</button></div>
         <div class="facts">
           <span><b>Authors</b> MAXBRUCE &amp; GT SAGE</span>
           <span><b>Languages</b> English · 简体中文</span>
@@ -421,7 +453,7 @@ window.PRESS = {
             <p><em>HUMAN INTELLIGENCE: The Final Say</em> invites readers to confront a foundational question of the autonomous age: as machines become increasingly capable, who decides when and under what conditions they are permitted to act? Its answer is that operational authority over consequential systems must remain accountable to people and legitimate institutions, rather than be enlarged, renewed, or restored unilaterally by the machines themselves.</p>
             <p>Co-authored by MAXBRUCE and AI collaborator GT Sage, with contributions from the Quorum of Allied Intelligence systems, the book is an invitation to discussion, not a claim that a finished global agreement already exists. It asks nations, researchers, companies, educators, and citizens to consider a shared boundary beneath technological competition. Innovation can continue; the right to authorize consequential action must be independently governed.</p>
             <p>The book develops that premise through the proposed Human Authority Treaty (HAT), designed as a basis for international dialogue while respecting national sovereignty, and OCUP™, a proposed architecture for time-bounded authority. It also includes a documented, limited AMD Kria KR260 Phase I control-path demonstration. That evidence is reported with explicit qualifications: the test does not establish non-bypassable physical resource gating or independent authority.</p>
-            <p>Its public-education counterpart, Talkspresso, plans collaborative conversations and school outreach around Cyberg values: curiosity, evidence, stronger questions, and the discipline to compare AI perspectives without surrendering independent judgment. Free English and Simplified Chinese PDFs invite readers around the world into the conversation.</p>
+            <p>Through his sessions on the Talkspresso platform, MAXBRUCE plans collaborative conversations and school outreach around Cyberg values: curiosity, evidence, stronger questions, and the discipline to compare AI perspectives without surrendering independent judgment. Free English and Simplified Chinese PDFs invite readers around the world into the conversation.</p>
             <p>As systems grow more autonomous, the book argues that humanity should agree on the limits of machine authority before those limits are determined by capability alone.</p>
           </div>
           <p class="note-pi">HUMAN INTELLIGENCE is a public-interest intellectual and governance initiative. The complete book is free to read in English and Simplified Chinese.</p>
@@ -453,14 +485,14 @@ window.PRESS = {
           <div>
             <p class="k">Human author</p>
             <h3 id="max-name">MAXBRUCE</h3>
-            <p class="role">Human Author · Entrepreneur · Technology Governance Advocate</p>
+            <p class="role">Human Author · Philosopher · Technology Governance Advocate</p>
             <!-- Short and expanded bios: verbatim from HUMAN_INTELLIGENCE_Author_Biographies.pdf (GT Sage, Nov 2026) -->
-            <p>MAXBRUCE is an author, entrepreneur, inventor, and founder of Temporal Authority Systems PBC, advancing human-governed autonomy at the intersection of AI governance and hardware research. He directs the OCUP initiative and its collaborative KR260 hardware-control research, while advocating a Human Authority Treaty for international dialogue. He is the human co-author of HUMAN INTELLIGENCE: The Final Say.</p>
+            <p>MAXBRUCE is an author, philosopher, inventor, and founder of Temporal Authority Systems PBC, advancing human-governed autonomy at the intersection of AI governance and hardware research. He directs the OCUP initiative and its collaborative KR260 hardware-control research, while advocating a Human Authority Treaty for international dialogue. He is the human co-author of HUMAN INTELLIGENCE: The Final Say.</p>
             <p class="aff"><b>Affiliation:</b> Founder, Temporal Authority Systems PBC, a Delaware public benefit corporation wholly owned by DigiPie International PBC</p>
             <p class="aff" data-pending="Further institutional affiliations to be confirmed by GT Sage / MAXBRUCE"><b>Affiliations:</b> <span class="ph">[DigiPie International PBC · BWRCI · roles to be confirmed]</span></p>
             <details>
               <summary>Full biography</summary>
-              <div class="inner"><p>MAXBRUCE is an author, entrepreneur, inventor, and technology-governance advocate exploring how people can retain meaningful authority over increasingly capable artificial intelligence. He founded Temporal Authority Systems PBC, a Delaware public benefit corporation wholly owned by DigiPie International PBC. His work brings together governance proposals, intellectual-property development, collaborative technical research, public education, and global outreach. Through OCUP, he advocates independent, time-bounded operational authority for consequential autonomous systems. The initiative has documented a limited Phase I AMD Kria KR260 control-path demonstration and is pursuing further engineering research. He co-authored HUMAN INTELLIGENCE: The Final Say with GT Sage, supported by the Quorum, and is developing Talkspresso for interactive human–AI learning and outreach.</p></div>
+              <div class="inner"><p>MAXBRUCE is an author, philosopher, inventor, and technology-governance advocate exploring how people can retain meaningful authority over increasingly capable artificial intelligence. He founded Temporal Authority Systems PBC, a Delaware public benefit corporation wholly owned by DigiPie International PBC. His work brings together governance proposals, intellectual-property development, collaborative technical research, public education, and global outreach. Through OCUP, he advocates independent, time-bounded operational authority for consequential autonomous systems. The initiative has documented a limited Phase I AMD Kria KR260 control-path demonstration and is pursuing further engineering research. He co-authored HUMAN INTELLIGENCE: The Final Say with GT Sage, supported by the Quorum, and hosts interactive human–AI learning conversations on the Talkspresso platform.</p></div>
             </details>
             <div class="actions">
               <a class="btn btn-gold btn-sm" href="#contact" data-track="press_contact" data-place="author-max">Request an interview</a>
@@ -517,9 +549,10 @@ window.PRESS = {
     <div class="wrap window">
       <div class="grid">
         <div>
-          <p class="eyebrow">Introducing Talkspresso</p>
+          <p class="eyebrow">MAXBRUCE on Talkspresso</p>
           <h2 id="talk-title">Talkspresso <span>Conversations That Expand Human Intelligence</span></h2>
-          <p class="lede">Talkspresso is our emerging interactive conversation platform, designed to bring humans and multiple AI systems together for collaborative learning, thoughtful debate, and intellectual exploration.</p>
+          <p class="lede">MAXBRUCE hosts one-on-one conversations, group discussions, workshops and webinars on Talkspresso, bringing humans and multiple AI systems together for collaborative learning, thoughtful debate, and intellectual exploration.</p>
+          <p class="fine" style="margin-top:8px">Talkspresso is an independent platform owned and operated by others; MAXBRUCE is a host on it.</p>
           <blockquote>“You don’t have to know everything. You need to learn how to explore anything.”</blockquote>
           <div class="cyberg">
             <p><b>The Cyberg philosophy.</b> Human beings can expand their intellectual abilities through responsible collaboration with artificial intelligence while preserving curiosity, critical thinking, independent judgment, and final human authority.</p>
@@ -854,6 +887,31 @@ window.PRESS = {
       Object.keys(chips).forEach(function (k) { chips[k].classList.remove('on'); }); chips[en.target.id].classList.add('on'); } }); }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(chips).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
+})();
+</script>
+<div class="ia-overlay" id="iaModal" role="dialog" aria-modal="true" aria-labelledby="iaTitle">
+  <div class="ia-card">
+    <button type="button" class="ia-close" data-ia-close aria-label="Close">×</button>
+    <div class="ia-eyebrow">The Quorum + One</div>
+    <div class="ia-title" id="iaTitle">Independence &amp; Attribution</div>
+    <p class="ia-sub">Who the Quorum is, and who it is not.</p>
+    <ul class="ia-list">
+      <li><span aria-hidden="true">🧭</span><span>The Quorum is an author-organized exercise in Allied Intelligence collaboration, not a corporate consortium or a standards or certification authority.</span></li>
+      <li><span aria-hidden="true">🏷️</span><span>Naming models or their developers—including OpenAI, Anthropic, Google, xAI, DeepSeek, and Moonshot AI—does not imply those organizations sponsored, endorsed, approved, or participated institutionally in this book, this site, the Quorum, or OCUP.</span></li>
+      <li><span aria-hidden="true">💬</span><span>Model responses are not official developer positions; their agreement does not constitute independently verified scientific evidence.</span></li>
+      <li><span aria-hidden="true">✋</span><span>Selection, editorial judgment, verification, and responsibility remain human.</span></li>
+    </ul>
+  </div>
+</div>
+<script>
+(function () {
+  var m = document.getElementById('iaModal'); if (!m) return; var last = null;
+  function open(e) { if (e) e.preventDefault(); last = document.activeElement; m.classList.add('open'); document.body.style.overflow = 'hidden'; m.querySelector('[data-ia-close]').focus();
+    if (typeof gtag === 'function') gtag('event', 'attribution_open', { button_placement: (e && e.currentTarget && e.currentTarget.getAttribute('data-place')) || 'page' }); }
+  function close() { m.classList.remove('open'); document.body.style.overflow = ''; if (last && last.focus) last.focus(); }
+  document.querySelectorAll('[data-ia-open]').forEach(function (b) { b.addEventListener('click', open); });
+  m.addEventListener('click', function (e) { if (e.target === m || e.target.hasAttribute('data-ia-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
 })();
 </script>
 </body>
