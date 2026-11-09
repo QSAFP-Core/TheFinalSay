@@ -351,6 +351,10 @@
   .modal .closing{ font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--gold-hi); text-align: center; margin: 6px 0 24px; }
   .modal .note{ font-size: .82rem; color: var(--ink-faint); border-top: 1px solid var(--line); padding-top: 16px; margin: 8px 0 0; }
   .modal .actions{ justify-content: center; margin-top: 26px; }
+  .hero .hat-dl{ margin: 14px 0 0; font-size: .92rem; text-shadow: 0 2px 12px rgba(0,0,0,.85); }
+  .hero .hat-dl a{ color: var(--gold-hi); text-decoration: none; border-bottom: 1px solid var(--gold-line); padding-bottom: 2px; }
+  .hero .hat-dl a:hover{ color: #fff; border-color: var(--gold); }
+  .hero .hat-dl span{ color: var(--ink-dim); }
   .toast{ position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px); opacity: 0; z-index: 60; background: var(--gold); color: #0b0b12; font-weight: 600; padding: 10px 18px; border-radius: 999px; transition: all .3s ease; pointer-events: none; }
   .toast.on{ opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
@@ -380,6 +384,7 @@
     <li><a href="#gift">Give the Gift</a></li>
     <li><a href="commandments/">The Challenge</a></li>
     <li><a href="videos.html">Watch</a></li>
+    <li><a href="press/">Press</a></li>
     <li><a class="pill" href="#free" data-track="free_section" data-place="nav">Read Free ↓</a></li>
   </ul>
 </header>
@@ -403,6 +408,7 @@
         <a class="btn btn-gold" href="#free" data-track="free_section" data-place="hero">Read and download the Free Edition ↓</a>
         <button type="button" class="btn btn-ghost" data-open="hatModal" data-track="hat_treaty" data-place="hero" aria-haspopup="dialog">What is the H.A.T. TREATY?</button>
       </div>
+      <p class="hat-dl"><a href="press/files/HAT_Executive_Summary_Discussion_Draft_EN.pdf" target="_blank" rel="noopener" data-track="download" data-edition="hat-summary" data-place="hero">Download the H.A.T. Treaty summary <span>· PDF ↓</span></a></p>
       <a class="cue" href="#question" aria-label="Scroll down"></a>
     </div>
   </section>
@@ -607,6 +613,7 @@
         <li><a href="gift.html">Give the gift</a></li>
         <li><a href="commandments/">The Challenge: AI Commandments</a></li>
         <li><a href="videos.html">Videos</a></li>
+        <li><a href="press/">Press &amp; media</a></li>
       </ul>
     </div>
     <div>
@@ -644,6 +651,7 @@
     <p class="note">The H.A.T. Treaty is a proposal presented in the manifesto, not an existing international agreement or an initiative administered or endorsed by WIPO.</p>
     <div class="actions">
       <a class="btn btn-gold" href="#free" data-close data-track="free_section" data-place="hat-modal">Read the full proposal, free ↓</a>
+      <a class="btn btn-ghost" href="press/files/HAT_Executive_Summary_Discussion_Draft_EN.pdf" target="_blank" rel="noopener" data-track="download" data-edition="hat-summary" data-place="hat-modal">Download the H.A.T. summary · PDF ↓</a>
     </div>
   </div>
 </div>
